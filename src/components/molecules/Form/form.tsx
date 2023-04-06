@@ -1,3 +1,4 @@
+import { BoxForm, LoginForm } from './style.js';
 import FormInput, { InputProps } from '../../atoms/FormInput/index.tsx.js'
 import React, { FormEvent } from 'react'
 
@@ -15,14 +16,14 @@ const Form = ({ onSubmit}: FormProps) => {
     }
 
   return (
-    <div>
-        <form onSubmit={onSubmit}>
+    <LoginForm>
+        <BoxForm onSubmit={onSubmit}>
             <SubTitulo titulo='HyperDash'/>
             <FormInput label='Email:' id='email' placeholder={'Digite seu nome:'} onChange={handleChange}/>
             <FormInput label='Senha:' id='Senha' placeholder={'Digite sua senha:'} onChange={handleChange}/>
             <SubmitButton title='Login'/>
-        </form>
-    </div>
+        </BoxForm>
+    </LoginForm>
   )
 }
 
