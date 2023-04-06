@@ -1,10 +1,9 @@
+import Form from '../../components/molecules/Form/form.js'
 import React from 'react'
 
 const Login = () => {
   return (
-    <div>
-      
-    </div>
+    <Form  onSubmit={()=> {}}/>
   )
 }
 

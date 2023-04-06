@@ -1,4 +1,3 @@
-# btc-client
 # Projeto Hyperlocal dashbord - HyperDash
 # Tecnologias Utilizadas
 
