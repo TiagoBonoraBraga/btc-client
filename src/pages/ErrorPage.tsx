@@ -1,4 +1,4 @@
-import {Container} from './style';
+import {Container} from './StylePages/ErrorPage';
 
 const ErrorPage = () => {
 	return (

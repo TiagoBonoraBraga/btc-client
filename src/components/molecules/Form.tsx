@@ -1,9 +1,9 @@
-import { BoxForm, LoginForm } from './style.js';
-import FormInput, { InputProps } from '../../atoms/FormInput/index.tsx.js'
+import { BoxForm, LoginForm } from './MoleculesStyle/Form';
+import FormInput, { InputProps } from '../atoms/FormInput.js'
 import React, { FormEvent } from 'react'
 
-import SubTitulo from '../../atoms/SubTitulo/index.js';
-import SubmitButton from '../../atoms/SubmitButton/index.js';
+import SubTitulo from '../atoms/SubTitulo.js';
+import SubmitButton from '../atoms/SubmitButton.js';
 
 export interface FormProps<T = FormEvent<HTMLFormElement>> {  
   onSubmit: (value: T) => void;

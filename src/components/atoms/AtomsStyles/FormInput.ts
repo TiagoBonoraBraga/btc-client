@@ -6,6 +6,7 @@ export const LabelForm = styled.label`
     justify-content: flex-start;
     align-items: flex-start;
     margin-right: 120px;
+    font-size: 15;
 `;
 
 export const InputForm = styled.input`
@@ -17,4 +18,25 @@ export const InputForm = styled.input`
     justify-content: flex-start;
     align-items: flex-start;
     height: 20px;
+    
+
+   
+  
+    :focus {
+        box-shadow: 0 0 0 0;
+        outline: 0;
+}
+
+    ::-webkit-input-placeholder { /* Edge */
+        color: #ccc;
+        font-size:smaller;
+}
+
+    :-ms-input-placeholder { /* Internet Explorer */
+        color: #ccc;
+}
+
+    ::placeholder {
+        color: #ccc;
+}
 `;

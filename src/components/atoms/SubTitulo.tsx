@@ -1,4 +1,4 @@
-import { SubTituloForm } from "./style"
+import { SubTituloForm } from "./AtomsStyles/SubTitulo"
 
 type TituloProps = {
   titulo: string;  

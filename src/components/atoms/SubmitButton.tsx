@@ -1,4 +1,4 @@
-import { Buttom } from './style';
+import { Buttom } from './AtomsStyles/SubmitButton';
 import React from 'react'
 
 type SubmitButton = {

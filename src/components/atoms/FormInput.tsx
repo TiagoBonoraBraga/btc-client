@@ -1,4 +1,4 @@
-import { InputForm, LabelForm } from './style';
+import { InputForm, LabelForm } from './AtomsStyles/FormInput';
 
 import React from 'react'
 

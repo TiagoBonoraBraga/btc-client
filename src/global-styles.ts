@@ -4,7 +4,7 @@ export const GlobalStyle = createGlobalStyle`
     body{
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        /* justify-content: center; */
         width: 100%;
         height: 100vh;
         background-color: ${(props) => props.theme.lightTheme.bg};
