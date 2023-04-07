@@ -6,7 +6,7 @@ export const LabelForm = styled.label`
     justify-content: flex-start;
     align-items: flex-start;
     margin-right: 120px;
-    font-size: 15;
+    font-size: 15px;
 `;
 
 export const InputForm = styled.input`

@@ -5,7 +5,7 @@ import React from 'react'
 const Logout = () => {
   return (
     <LogoutBox>
-      <MdLogout color="#2D9BF0" size={20}/>
+      <MdLogout color="#2D9BF0" size={30}/>
     </LogoutBox>
   )
 }
