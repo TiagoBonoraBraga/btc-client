@@ -1,11 +1,17 @@
 import styled from 'styled-components'
 
 export const LogoBox = styled.div`
-    width: 200px;
-    height: 50px;
+position: absolute;
+    /* width: 200px; */
+    height: 100%;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
-    margin: 10px 0 20px 0;
+    /* padding-left: 40px; */
+    h1{
+        color: #2D9BF0;
+        font-size: 2rem;
+        font-weight: 500;
+    }
     
 `;
