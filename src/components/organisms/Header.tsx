@@ -1,9 +1,12 @@
 import { HeaderStyled, LogoStyled, MenuContentStyled, MenuIconStyled, MenuStyled } from './OrganismsStyle/Header'
 import { memo, useState } from 'react';
 
-import { FiMenu } from 'react-icons/fi'
 import logo from '../../assets/logo.png';
 import menublue from '../../assets/menublue.png';
+
+// import { FiMenu } from 'react-icons/fi'
+
+
 
 // import Logo from '../atoms/Logo'
 // import NavBar from '../molecules/NavBar'
