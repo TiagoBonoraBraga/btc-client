@@ -11,8 +11,8 @@ import { ThemeProvider } from 'styled-components';
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
-      <RouterProvider router={Routes} />
       <GlobalStyle/>
+      <RouterProvider router={Routes} />
     </ThemeProvider>
   </React.StrictMode>,
 )

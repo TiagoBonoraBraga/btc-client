@@ -5,7 +5,7 @@ import SubTitulo from './SubTitulo'
 const Logo = () => {
   return (
     <LogoBox>
-      <SubTitulo titulo="logo"/>
+      <h1>HyperDash</h1>
     </LogoBox>
   )
 }
