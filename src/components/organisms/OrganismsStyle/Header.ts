@@ -30,7 +30,7 @@ export const MenuContentStyled = styled.div`
     overflow: hidden;
     display: none;
     height: 40px;
-    padding: 10px;
+    /* padding: 10px; */
     
 
     @media (max-width: 768px){
