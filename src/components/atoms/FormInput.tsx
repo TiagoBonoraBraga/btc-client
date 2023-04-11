@@ -12,19 +12,19 @@ export type InputProps = {
   
 }
 
-const FormInput = ({ label, id, placeholder,  setValue, value, type}: InputProps) => {
+const FormInput = ({ label, id, placeholder, type, setValue, value, ...props}: InputProps) => {
   return (
     <>
-      <LabelForm htmlFor="id">{label}</LabelForm>
-      <InputForm 
-        id={id} 
-        name={id}
-        type={type} 
-        placeholder={placeholder} 
-        onChange={({ target }) => setValue(target.value)}
-        value={value}
-        
-         />
+    <LabelForm htmlFor="id">{label}</LabelForm>
+    <InputForm 
+      id={id} 
+      name={id}
+      value={value}      
+      type={type} 
+       onChange={({ target }) => setValue(target.value)}
+      placeholder={placeholder} 
+      {...props} 
+      />
     </>
   )
 }
