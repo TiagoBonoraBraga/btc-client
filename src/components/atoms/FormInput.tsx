@@ -12,8 +12,8 @@ export type InputProps = {
 const FormInput = ({label, id, placeholder, onChange, ...props}: InputProps) => {
   return (
     <>
-    <LabelForm htmlFor="">{label}</LabelForm>
-    <InputForm type="text" id={id} placeholder={placeholder} {...props} onChange={onChange}/>
+    <LabelForm htmlFor="text">{label}</LabelForm>
+    <InputForm type="text" id={id} placeholder={placeholder} {...props} onChange={onChange} required/>
     </>
   )
 }
