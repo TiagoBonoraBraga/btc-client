@@ -6,14 +6,25 @@ export type InputProps = {
   label: string;
   id: string;
   placeholder: string;
-  onChange: ()=>void;
+  value: string;
+  setValue: any;
+  type: string;
+  
 }
 
-const FormInput = ({label, id, placeholder, onChange, ...props}: InputProps) => {
+const FormInput = ({ label, id, placeholder,  setValue, value, type}: InputProps) => {
   return (
     <>
-    <LabelForm htmlFor="">{label}</LabelForm>
-    <InputForm type="text" id={id} placeholder={placeholder} {...props} onChange={onChange}/>
+      <LabelForm htmlFor="id">{label}</LabelForm>
+      <InputForm 
+        id={id} 
+        name={id}
+        type={type} 
+        placeholder={placeholder} 
+        onChange={({ target }) => setValue(target.value)}
+        value={value}
+        
+         />
     </>
   )
 }

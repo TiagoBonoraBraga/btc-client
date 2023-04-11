@@ -11,7 +11,6 @@ import menublue from '../../assets/menublue.png';
 // import Logo from '../atoms/Logo'
 // import NavBar from '../molecules/NavBar'
 
-
 const Header = () => {
   const [show, setShow] = useState<boolean>(false);
 
@@ -19,9 +18,11 @@ const Header = () => {
     setShow(!show);
   }
 
-  return (
-    <HeaderStyled>
 
+  return (
+    <>
+
+    <HeaderStyled>
       <LogoStyled>
         <a href='#'>
           <img src={logo} alt="logo" width="150px"/>
@@ -50,6 +51,9 @@ const Header = () => {
         </li>
       </MenuStyled>
     </HeaderStyled>
+
+
+    </>
   )
 }
 

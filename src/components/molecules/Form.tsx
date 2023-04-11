@@ -1,29 +1,54 @@
 import { BoxForm, LoginForm } from './MoleculesStyle/Form';
 import FormInput, { InputProps } from '../atoms/FormInput.js'
-import React, { FormEvent } from 'react'
+import React, { FormEvent, useState } from 'react'
 
 import Logo from '../atoms/Logo';
 import SubmitButton from '../atoms/SubmitButton.js';
 
-// import SubTitulo from '../atoms/SubTitulo.js';
-
-
-export interface FormProps<T = FormEvent<HTMLFormElement>> {  
-  onSubmit: (value: T) => void;
+interface LoginRequest {
+  email: string;
+  password: string;
 }
 
-const Form = ({ onSubmit}: FormProps) => {
+const Form = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-    function handleChange(): void {
-        throw new Error('Function not implemented.')
-    }
+   function handleSubmit(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    
+     const loginPayload: LoginRequest = {
+      email: email,
+      password: password,
+    };
+    console.log(loginPayload)
+
+   }
+
 
   return (
     <LoginForm>
-        <BoxForm onSubmit={onSubmit}>
+        <BoxForm onSubmit={handleSubmit}>
             <Logo/>
-            <FormInput label='Email:' id='email' placeholder={'Digite seu nome:'} onChange={handleChange}/>
-            <FormInput label='Senha:' id='Senha' placeholder={'Digite sua senha:'} onChange={handleChange}/>
+
+            <FormInput 
+              label='Email:' 
+              id='email' 
+              type="text" 
+              value={email}
+              setValue={setEmail} 
+              placeholder='Digite seu nome:'
+              />
+
+            <FormInput 
+             label='Email:' 
+              id='email' 
+              type="password" 
+              value={password}
+              setValue={setPassword} 
+              placeholder='Digite sua senha:' 
+              />
+
             <SubmitButton title='Login'/>
         </BoxForm>
     </LoginForm>
