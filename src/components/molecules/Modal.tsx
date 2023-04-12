@@ -31,7 +31,7 @@ const Modal: React.FC<ModalProps> = ({ showModal, handleClose }) => {
         <ModalHeader>
 
           <ModalTitleWrapper>
-            <SubTitulo titulo={"Modal Exemple"} />
+            <SubTitulo titulo={"Bem Vindo"} />
           </ModalTitleWrapper>
           
           <ModalCloseButton onClick={closeModal}>×</ModalCloseButton>
@@ -43,7 +43,7 @@ const Modal: React.FC<ModalProps> = ({ showModal, handleClose }) => {
 
         <ButtonsWrapper>
           <CancelButton onClick={closeModal} title={"Cancelar"} />
-          <SubmitButton title={"Enviar"} />
+          <SubmitButton title={"Entrar"} />
         </ButtonsWrapper>
       
       </ModalContainer>
