@@ -7,6 +7,7 @@ import FormCadClient from "../components/organisms/FormCadClient";
 import FormCadProduct from "../components/organisms/FormCadProduct";
 import SubTitulo from "../components/atoms/SubTitulo";
 import Cards from "../components/organisms/Cards";
+import Modal from "../components/molecules/Modal";
 
 type initialStateProps = {
   FormCadFranchisee: boolean;
@@ -39,6 +40,9 @@ const Admin = () => {
 
   return (
     <>
+    <Modal showModal={true} handleClose={function (): void {
+        throw new Error("Function not implemented.");
+      } }></Modal>
       <Header />
       <Section>
         <LeftDiv>
