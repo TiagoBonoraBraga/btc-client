@@ -38,15 +38,17 @@ const Form = () => {
               value={email}
               setValue={setEmail} 
               placeholder='Digite seu nome:'
+              required
               />
 
             <FormInput 
              label='Email:' 
-              id='email' 
+              id='password' 
               type="password" 
               value={password}
               setValue={setPassword} 
-              placeholder='Digite sua senha:' 
+              placeholder='Digite sua senha:'
+              required 
               />
 
             <SubmitButton title='Login'/>
