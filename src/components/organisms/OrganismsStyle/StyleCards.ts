@@ -8,14 +8,15 @@ export const CardContainer = styled.div`
   flex-direction: column;
   align-items: center;
   padding: 0.5rem;
-  border: 1px solid #ccc;
+  /* border: 1px solid #ccc;
   border-radius: 10px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); */
   transition: all 0.3s ease;
   cursor: pointer;
   
   &:hover {
     transform: translateY(-5px);
+    border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
   }
 
