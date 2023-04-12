@@ -5,7 +5,7 @@ import React from 'react'
 const Login = () => {
   return (
     <LoginPage>
-    <Form  onSubmit={()=> {}}/>
+    <Form />
     </LoginPage>
   )
 }
