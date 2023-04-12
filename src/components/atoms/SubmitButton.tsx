@@ -1,4 +1,4 @@
-import { Buttom } from './AtomsStyles/SubmitButton';
+import { SubButtom } from './AtomsStyles/Buttons';
 import React from 'react'
 
 type SubmitButton = {
@@ -8,7 +8,7 @@ type SubmitButton = {
 
 const SubmitButton = ({title}: SubmitButton) => {
   return (
-    <Buttom type='submit'>{title}</Buttom>
+    <SubButtom type='submit'>{title}</SubButtom>
   )
 }
 
