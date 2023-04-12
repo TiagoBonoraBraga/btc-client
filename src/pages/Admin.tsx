@@ -24,7 +24,7 @@ const Admin = () => {
   const [info, setInfo] = useState<initialStateProps>(initialState);
 
   useEffect(() => {
-    setInfo({ ...initialState, FormCadFranchisee: true });
+    setInfo({ ...initialState, FormCadFranchisee: false });
   }, []);
   const handleClickFranc = () => {
     setInfo({ ...initialState, FormCadFranchisee: true });
