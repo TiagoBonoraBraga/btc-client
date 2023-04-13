@@ -10,6 +10,7 @@ export type InputProps = {
   setValue: any;
   type: string;
   
+  
 }
 
 const FormInput = ({ label, id, placeholder, type, setValue, value, ...props}: InputProps) => {
@@ -23,7 +24,9 @@ const FormInput = ({ label, id, placeholder, type, setValue, value, ...props}: I
       type={type} 
        onChange={({ target }) => setValue(target.value)}
       placeholder={placeholder} 
+      required
       {...props} 
+      
       />
     </>
   )
