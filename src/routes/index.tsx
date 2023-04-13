@@ -7,6 +7,7 @@ import Franchised from '../pages/Franchised';
 import Home from '../pages/Home';
 import Login from '../pages/Login';
 import Products from '../pages/Products';
+import Support from '../pages/Support';
 
 const App = () => {
     return (
@@ -28,6 +29,7 @@ const Routes = createBrowserRouter([
             { path: '/products', element: <Products /> },
             { path: '/admin', element: <Admin /> },
             { path: '/franchised', element: <Franchised /> },
+             { path: '/support', element: <Support /> },
             
 
         ],
