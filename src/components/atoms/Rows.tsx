@@ -1,24 +1,22 @@
 import React from 'react'
 
 export type RowsProps = {
-    id: number;
     nome: string;
-    score: number;
-    tier: number;
-    comissao: number;
+    clientes: string;
+    usuarios: string;
+    
    
 }
 
-const Rows = ({id, nome, score, tier, comissao}: RowsProps) => {
+const Rows = ({ nome, clientes, usuarios}: RowsProps) => {
    
   return (
   
         <tr>
-            <td>{id}</td>
             <td>{nome}</td>
-            <td>{score}</td>
-            <td>{tier}</td>
-            <td>{comissao}</td>
+            <td>{clientes}</td>
+            <td>{usuarios}</td>
+            
         </tr>
       
    

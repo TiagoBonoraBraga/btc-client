@@ -1,24 +1,32 @@
 import React, { useState } from 'react'
 
+import { BoxTable } from './StylePages/Franchised';
 import Header from '../components/organisms/Header'
-import Table from '../components/molecules/MoleculesStyle/Table';
+import SubTitulo from '../components/atoms/SubTitulo';
+import Table from '../components/molecules/Table';
 
 const franchised = [
-    {id: 1, nome: "João da silva", score: 46, tier: 6, comissao: 1000.00},
-    {id: 2, nome: "Tammy Zugman", score: 29, tier: 0, comissao: 500.00},
-    {id: 3, nome: "Cleber Moura", score: 96, tier: 4, comissao: 800.00},
+    { nome: "João da silva", clientes: 5, usuarios: 3},
+    { nome: "Tammy Zugman",  clientes: 2, usuarios: 4},
+    { nome: "Cleber Moura",  clientes: 15, usuarios:5},
 ]
 
+// const Mocks = franchised
 const Franchised = () => {
 
 const [rows, setRows] = useState(franchised);
 
   return (
-    <div>
+   <>   
       <Header/>
+     <BoxTable>
+      <SubTitulo titulo="Franqueados"/>
       <Table data={rows}/>
+     </BoxTable>
+   </>
+
       
-    </div>
+  
   )
 }
 
