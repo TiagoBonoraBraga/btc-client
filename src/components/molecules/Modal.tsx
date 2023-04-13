@@ -42,8 +42,8 @@ const Modal: React.FC<ModalProps> = ({ showModal, handleClose }) => {
         </ModalContentWrapper>
 
         <ButtonsWrapper>
-          <CancelButton onClick={closeModal} title={"Cancelar"} />
-          <SubmitButton title={"Entrar"} />
+          {/* <CancelButton onClick={closeModal} title={"Cancelar"} /> */}
+          <SubmitButton title={"Continuar"} />
         </ButtonsWrapper>
       
       </ModalContainer>
