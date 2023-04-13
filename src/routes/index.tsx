@@ -3,9 +3,11 @@ import { Outlet, createBrowserRouter } from 'react-router-dom';
 import Admin from '../pages/Admin';
 import Client from '../pages/Client';
 import ErrorPage from '../pages/ErrorPage';
+import Franchised from '../pages/Franchised';
 import Home from '../pages/Home';
 import Login from '../pages/Login';
 import Products from '../pages/Products';
+import Support from '../pages/Support';
 
 const App = () => {
     return (
@@ -26,6 +28,8 @@ const Routes = createBrowserRouter([
             { path: '/client', element: <Client /> },
             { path: '/products', element: <Products /> },
             { path: '/admin', element: <Admin /> },
+            { path: '/franchised', element: <Franchised /> },
+             { path: '/support', element: <Support /> },
             
 
         ],

@@ -4,7 +4,7 @@ import React from 'react'
 
 export type InputProps = {
   label: string;
-  id: string;
+  id?: string;
   placeholder: string;
   value: string;
   setValue: any;
