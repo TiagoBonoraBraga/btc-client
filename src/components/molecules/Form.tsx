@@ -38,6 +38,7 @@ const Form = () => {
               value={email}
               setValue={setEmail} 
               placeholder='Digite seu nome:'
+              
               />
 
             <FormInput 
