@@ -42,8 +42,8 @@ const Form = () => {
               />
 
             <FormInput 
-             label='Email:' 
-              id='password' 
+             label='Senha:' 
+              id='senha' 
               type="password" 
               value={password}
               setValue={setPassword} 
