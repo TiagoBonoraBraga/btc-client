@@ -9,7 +9,7 @@ export type InputProps = {
   value: string;
   setValue: any;
   type: string;
-  required: boolean
+  
 }
 
 const FormInput = ({ label, id, placeholder, type, setValue, value, ...props}: InputProps) => {
