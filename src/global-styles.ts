@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components"
+import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
     body{
@@ -18,7 +18,7 @@ export const GlobalStyle = createGlobalStyle`
 const colors = {
   lightPrimary: "#fff",
   darkPrimary: "#2D9BF0",
-}
+};
 
 export const theme = {
   lightTheme: {
@@ -31,9 +31,7 @@ export const theme = {
   },
 };
 
-
 export interface Theme {
   bg: string;
   fg: string;
 }
-

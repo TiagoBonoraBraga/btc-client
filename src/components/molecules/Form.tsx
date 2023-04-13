@@ -47,7 +47,8 @@ const Form = () => {
               type="password" 
               value={password}
               setValue={setPassword} 
-              placeholder='Digite sua senha:' 
+              placeholder='Digite sua senha:'
+              
               />
 
             <SubmitButton title='Login'/>

@@ -21,8 +21,8 @@ const FormInput = ({ label, id, placeholder, type, setValue, value, ...props}: I
       id={id} 
       name={id}
       value={value}      
-      type={type} 
-       onChange={({ target }) => setValue(target.value)}
+      type={type}
+      onChange={({ target }) => setValue(target.value)}
       placeholder={placeholder} 
       required
       {...props} 

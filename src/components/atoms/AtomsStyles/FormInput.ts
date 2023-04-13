@@ -15,6 +15,7 @@ export const InputForm = styled.input`
   border: 1px solid #2d9bf0;
   border-radius: 5px;
   margin: 5px 0 10px 0;
+  width: 80%;
   color: black;
   height: 20px;
   display: flex;
