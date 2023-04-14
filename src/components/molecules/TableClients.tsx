@@ -1,8 +1,8 @@
 import RowsClient, { RowsClientProps } from '../atoms/RowsClient';
 
 import { BoxTable } from './MoleculesStyle/Table';
-import Celule from '../atoms/Celule';
 import React from 'react'
+import TableHeadCel from '../atoms/TableHeadCel';
 
 type TableClientProps = {
     data: any;
@@ -12,10 +12,10 @@ const TableClients = ({data}: TableClientProps ) => {
   return (
    <BoxTable>
      <thead>                
-        <Celule titulo="Nome" />
-        <Celule titulo="Produtos" />
-        <Celule titulo="Franquia" />
-        <Celule titulo="Situação" />
+        <TableHeadCel titulo="Nome" />
+        <TableHeadCel titulo="Produtos" />
+        <TableHeadCel titulo="Franquia" />
+        <TableHeadCel titulo="Situação" />
      </thead>
      <tbody>
         {data.map((row: RowsClientProps, index: any) =>

@@ -1,9 +1,9 @@
 import React, { FormEvent, useState } from "react";
-import SubTitulo from "../atoms/SubTitulo";
-import FormInput from "../atoms/FormInput";
-import SubmitButton from "../atoms/SubmitButton";
-import { StyleSubTitulo } from "./OrganismsStyle/FormCadStyle";
 
+import FormInput from "../atoms/FormInput";
+import { StyleSubTitulo } from "./OrganismsStyle/FormCadStyle";
+import SubTitulo from "../atoms/SubTitle";
+import SubmitButton from "../atoms/SubmitButton";
 
 interface createRequest {
   name: string;

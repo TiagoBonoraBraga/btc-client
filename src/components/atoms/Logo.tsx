@@ -1,6 +1,6 @@
 import { LogoBox } from './AtomsStyles/Logo'
 import React from 'react'
-import SubTitulo from './SubTitulo'
+import SubTitulo from './SubTitle'
 
 const Logo = () => {
   return (

@@ -1,8 +1,8 @@
 import Rows, { RowsProps } from '../atoms/Rows';
 
 import { BoxTable } from './MoleculesStyle/Table';
-import Celule from '../atoms/Celule';
 import React from 'react'
+import TableHeadCel from '../atoms/TableHeadCel';
 
 type TableProps = {
     data: any;
@@ -15,9 +15,9 @@ const Table = ({ data }: TableProps) => {
         <BoxTable>
             <thead>
                 
-                <Celule titulo="Nome" />
-                <Celule titulo="Nº Clientes" />
-                <Celule titulo="Nº Usuários" />
+                <TableHeadCel titulo="Nome" />
+                <TableHeadCel titulo="Nº Clientes" />
+                <TableHeadCel titulo="Nº Usuários" />
                 
             </thead>
             <tbody>

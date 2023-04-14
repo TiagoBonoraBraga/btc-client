@@ -1,13 +1,14 @@
+import { LeftDiv, RightDiv, Section, StyleSubTitulo } from "../StylePages/Home";
 import React, { useEffect, useState } from "react";
-import Header from "../components/organisms/Header";
-import { LeftDiv, RightDiv, Section, StyleSubTitulo } from "./StylePages/Home";
-import FormCadFranchisee from "../components/organisms/FormCadFranchisee";
-import Form from "../components/molecules/Form";
-import FormCadClient from "../components/organisms/FormCadClient";
-import FormCadProduct from "../components/organisms/FormCadProduct";
-import SubTitulo from "../components/atoms/SubTitulo";
-import Cards from "../components/organisms/Cards";
-import Modal from "../components/molecules/Modal";
+
+import Cards from "../../components/organisms/Cards";
+import Form from "../../components/molecules/Form";
+import FormCadClient from "../../components/organisms/FormCadClient";
+import FormCadFranchisee from "../../components/organisms/FormCadFranchisee";
+import FormCadProduct from "../../components/organisms/FormCadProduct";
+import Header from "../../components/organisms/Header";
+import Modal from "../../components/molecules/Modal";
+import SubTitulo from "../../components/atoms/SubTitle";
 
 type initialStateProps = {
   FormCadFranchisee: boolean;

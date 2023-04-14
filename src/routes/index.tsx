@@ -1,12 +1,12 @@
 import { Outlet, createBrowserRouter } from 'react-router-dom';
 
-import Admin from '../pages/Admin';
-import Client from '../pages/Client';
+import Admin from '../pages/AdminPages/Admin';
+import Client from '../pages/AdminPages/Client';
 import ErrorPage from '../pages/ErrorPage';
-import Franchised from '../pages/Franchised';
+import Franchised from '../pages/AdminPages/Franchised';
 import Home from '../pages/Home';
 import Login from '../pages/Login';
-import Products from '../pages/Products';
+import Products from '../pages/AdminPages/Products';
 import Support from '../pages/Support';
 
 const App = () => {

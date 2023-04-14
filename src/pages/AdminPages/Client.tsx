@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 
-import { BoxTable } from './StylePages/Franchised'
-import Header from '../components/organisms/Header'
-import SubTitulo from '../components/atoms/SubTitulo'
-import TableClients from '../components/molecules/TableClients'
+import { BoxTable } from '../StylePages/Franchised'
+import Header from '../../components/organisms/Header'
+import SubTitle from '../../components/atoms/SubTitle'
+import TableClients from '../../components/molecules/TableClients'
 
 const clients = [
     { nome: "João da silva", produto: "produto 1", franquia: "João da Silva", situacao: "ativo"},
@@ -18,7 +18,7 @@ const Client = () => {
     <>
     <Header/>
     <BoxTable>
-       <SubTitulo titulo="Clientes"/>
+       <SubTitle titulo="Clientes"/>
        <TableClients data={rows}/>
     </BoxTable>    
     </>

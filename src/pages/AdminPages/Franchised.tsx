@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 
-import { BoxTable } from './StylePages/Franchised';
-import Header from '../components/organisms/Header'
-import SubTitulo from '../components/atoms/SubTitulo';
-import Table from '../components/molecules/Table';
+import { BoxTable } from '../StylePages/Franchised';
+import Header from '../../components/organisms/Header'
+import SubTitle from '../../components/atoms/SubTitle';
+import Table from '../../components/molecules/Table';
 
 const franchised = [
     { nome: "João da silva", clientes: 5, usuarios: 3},
@@ -20,7 +20,7 @@ const [rows, setRows] = useState(franchised);
    <>   
       <Header/>
      <BoxTable>
-      <SubTitulo titulo="Franqueados"/>
+      <SubTitle titulo="Franqueados"/>
       <Table data={rows}/>
      </BoxTable>
    </>

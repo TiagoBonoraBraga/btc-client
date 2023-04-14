@@ -1,7 +1,3 @@
-import React, { useState } from "react";
-import SubTitulo from "../atoms/SubTitulo";
-import SubmitButton from "../atoms/SubmitButton";
-import CancelButton from "../atoms/CancelButton";
 import {
   ButtonsWrapper,
   ModalCloseButton,
@@ -11,6 +7,11 @@ import {
   ModalOverlay,
   ModalTitleWrapper,
 } from "./MoleculesStyle/Modal";
+import React, { useState } from "react";
+
+import CancelButton from "../atoms/CancelButton";
+import SubTitulo from "../atoms/SubTitle";
+import SubmitButton from "../atoms/SubmitButton";
 
 interface ModalProps {
   showModal: boolean;

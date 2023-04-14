@@ -1,5 +1,5 @@
 import styled from "styled-components";
 
-export const BoxCelule = styled.th`
+export const HeadCel = styled.th`
     color: #fff;
 `;

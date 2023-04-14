@@ -1,7 +1,7 @@
-import React from 'react';
 import { CardContainer, CardDescription, CardImage, CardTitle } from './OrganismsStyle/StyleCards';
-import SubTitulo from '../atoms/SubTitulo';
 
+import React from 'react';
+import SubTitulo from '../atoms/SubTitle';
 
 interface CardsProps {
   title: string;
