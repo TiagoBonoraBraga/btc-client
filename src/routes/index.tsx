@@ -30,7 +30,7 @@ const Routes = createBrowserRouter([
             { path: '/admin', element: <Admin /> },
             { path: '/franchised', element: <Franchised /> },
              { path: '/support', element: <Support /> },
-            
+           
 
         ],
     },
