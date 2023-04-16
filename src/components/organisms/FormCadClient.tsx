@@ -42,7 +42,6 @@ const FormCadClient = () => {
         value={nameValue}
         setValue={setNameValue}
         type={"text"}
-        required
       />
 
       <FormInput
@@ -52,7 +51,6 @@ const FormCadClient = () => {
         value={emailValue}
         setValue={setEmailValue}
         type={"email"}
-        required
       />
 
       <FormInput
@@ -62,7 +60,6 @@ const FormCadClient = () => {
         value={addressValue}
         setValue={setAddressValue}
         type={"text"}
-        required
       />
 
       <SubmitButton title={"Enviar"} />
