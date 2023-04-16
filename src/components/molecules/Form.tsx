@@ -14,17 +14,23 @@ const Form = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-   function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     
-     const loginPayload: LoginRequest = {
+    const loginPayload: LoginRequest = {
       email: email,
       password: password,
     };
     console.log(loginPayload)
+    setEmail("");
+    setPassword("");
+  }
 
-   }
-
+  function handleKeyDown(e: React.KeyboardEvent<HTMLInputElement>) {
+    if (e.key === "Enter") {
+      handleSubmit(e as unknown as FormEvent<HTMLFormElement>);
+    }
+  }
 
   return (
     <LoginForm>
@@ -38,8 +44,8 @@ const Form = () => {
               value={email}
               setValue={setEmail} 
               placeholder='Digite seu nome:'
-              
-              />
+              onKeyDown={handleKeyDown}
+            />
 
             <FormInput 
              label='Senha:' 
@@ -48,8 +54,8 @@ const Form = () => {
               value={password}
               setValue={setPassword} 
               placeholder='Digite sua senha:'
-              
-              />
+              onKeyDown={handleKeyDown}
+            />
 
             <SubmitButton title='Login'/>
         </BoxForm>
@@ -58,3 +64,5 @@ const Form = () => {
 }
 
 export default Form
+
+
