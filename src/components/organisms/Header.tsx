@@ -38,16 +38,16 @@ const Header = () => {
           <a href="#">Receita</a>
         </li>
         <li>
-          <a href="#">Clientes</a>
+          <a href="/client">Clientes</a>
         </li>
         <li>
-          <a href="#">Produtos</a>
+          <a href="/products">Produtos</a>
         </li>
         <li>
-          <a href="#">Suporte</a>
+          <a href="/support">Suporte</a>
         </li>
         <li>
-          <a href="#">Sair</a>
+          <a href="/login">Sair</a>
         </li>
       </MenuStyled>
     </HeaderStyled>
