@@ -9,11 +9,14 @@ export type InputProps = {
   value: string;
   setValue: any;
   type: string;
-  
-  
+  onKeyDown?: (e: React.KeyboardEvent<HTMLInputElement>) => void;
 }
 
-const FormInput = ({ label, id, placeholder, type, setValue, value, ...props}: InputProps) => {
+const FormInput = ({ label, id, placeholder, type, setValue, value, onKeyDown, ...props}: InputProps) => {
+  function handleKeyDown(e: React.KeyboardEvent<HTMLInputElement>) {
+    onKeyDown && onKeyDown(e);
+  }
+
   return (
     <>
     <LabelForm htmlFor="id">{label}</LabelForm>
@@ -25,11 +28,14 @@ const FormInput = ({ label, id, placeholder, type, setValue, value, ...props}: I
       onChange={({ target }) => setValue(target.value)}
       placeholder={placeholder} 
       required
+      onKeyDown={handleKeyDown}
       {...props} 
-      
       />
     </>
   )
 }
 
 export default FormInput
+
+
+
