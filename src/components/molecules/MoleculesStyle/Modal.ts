@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const ModalOverlay = styled.div<{ isOpen: boolean }>`
   position: fixed;
+  z-index: 1000;
   top: 0;
   left: 0;
   right: 0;
