@@ -47,7 +47,6 @@ const FormCadProduct = () => {
         value={productValue}
         setValue={setProductValue}
         type={"text"}
-        required
       />
 
       <FormInput
@@ -57,7 +56,6 @@ const FormCadProduct = () => {
         value={commissionValue}
         setValue={setCommissionValue}
         type={"text"}
-        required
       />
 
       <FormInput
@@ -67,7 +65,6 @@ const FormCadProduct = () => {
         value={ponctuationValue}
         setValue={setPonctuationValue}
         type={"text"}
-        required
       />
 
       <SubmitButton title={"Enviar"} />
