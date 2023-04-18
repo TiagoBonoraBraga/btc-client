@@ -1,0 +1,29 @@
+[
+    {
+      "id": 1,
+      "text": "Receitas",
+      "url": "/"
+    },
+    {
+      "id": 2,
+      "text": "Clientes",
+      "url": "/client"
+    },
+    {
+      "id": 3,
+      "text": "Produto",
+      "url": "/product"
+    },
+    {
+      "id": 3,
+      "text": "Suporte",
+      "url": "/support"
+    },
+    {
+      "id": 3,
+      "text": "Sair",
+      "url": "/login"
+    }
+
+    
+  ]
