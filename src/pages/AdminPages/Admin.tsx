@@ -9,6 +9,8 @@ import FormCadProduct from "../../components/organisms/FormCadProduct";
 import Header from "../../components/organisms/Header";
 import Modal from "../../components/molecules/Modal";
 import SubTitulo from "../../components/atoms/SubTitle";
+import logoHyperloca from "../../assets/logoHyperlocal.png";
+import LogoAdmin from "../../components/atoms/LogoPagAdmin";
 
 type initialStateProps = {
   FormCadFranchisee: boolean;
@@ -22,23 +24,33 @@ const Admin = () => {
     FormCadClient: false,
     FormCadProduct: false,
   };
+  
+  const [ info, setInfo ] = useState<initialStateProps>(initialState);
+  const [ logo, setLogo ] = useState<boolean>(false)
+  const [ showModal, setShowModal ] = useState<boolean>(true)
 
-  const [info, setInfo] = useState<initialStateProps>(initialState);
-
-  useEffect(() => {
+  useEffect(() => { 
+    setLogo(true)
     setInfo({ ...initialState, FormCadFranchisee: false });
   }, []);
+  const handleClose = () => {
+    setShowModal(false);
+  };
   const handleClickFranc = () => {
+    setLogo(false);
     setInfo({ ...initialState, FormCadFranchisee: true });
   };
 
   const handleClickClient = () => {
+    setLogo(false);
     setInfo({ ...initialState, FormCadClient: true });
   };
   const handleClickProduct = () => {
+    setLogo(false);
     setInfo({ ...initialState, FormCadProduct: true });
   };
 
+  
   return (
     <>
     <Modal showModal={true} handleClose={function (): void {
@@ -70,9 +82,15 @@ const Admin = () => {
           />
         </LeftDiv>
         <RightDiv>
-          {info.FormCadFranchisee && <FormCadFranchisee />}
-          {info.FormCadClient && <FormCadClient />}
-          {info.FormCadProduct && <FormCadProduct />}
+        
+   
+      {info.FormCadFranchisee && <FormCadFranchisee />}
+      {info.FormCadClient && <FormCadClient />}
+      {info.FormCadProduct && <FormCadProduct />}
+      {logo && showModal && <LogoAdmin />}
+
+    
+      
         </RightDiv>
       </Section>
     </>
