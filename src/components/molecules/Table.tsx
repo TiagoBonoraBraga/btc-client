@@ -18,11 +18,15 @@ const Table = ({ data }: TableProps) => {
                 <TableHeadCel titulo="Nome" />
                 <TableHeadCel titulo="Nº Clientes" />
                 <TableHeadCel titulo="Nº Usuários" />
+                <TableHeadCel titulo="Editar" />
+                <TableHeadCel titulo="Situação" />
+                
+
                 
             </thead>
             <tbody>
                 {data.map((row: RowsProps, index: any) =>
-                    <Rows key={index}  nome={row.nome} clientes={row.clientes} usuarios={row.usuarios}  />
+                    <Rows key={index}  nome={row.nome} clientes={row.clientes} usuarios={row.usuarios} situacao={row.situacao} />
                 )}
             </tbody>
         </BoxTable>

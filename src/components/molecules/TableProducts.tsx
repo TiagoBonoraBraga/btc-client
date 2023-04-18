@@ -14,6 +14,7 @@ const TableProducts = ({data}: TableProductsProps) => {
             <TableHeadCel titulo="Nome" />
             <TableHeadCel titulo="Descrição" />
             <TableHeadCel titulo="Comissão" />
+            <TableHeadCel titulo="Editar" />
         </thead>
          <tbody>
             {data.map((row: RowsProductsProps, index: any) =>
