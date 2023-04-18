@@ -15,6 +15,7 @@ const TableClients = ({data}: TableClientProps ) => {
         <TableHeadCel titulo="Nome" />
         <TableHeadCel titulo="Produtos" />
         <TableHeadCel titulo="Franquia" />
+        <TableHeadCel titulo="Editar" />
         <TableHeadCel titulo="Situação" />
      </thead>
      <tbody>

@@ -5,3 +5,9 @@ export const Celula = styled.td`
 
 
 `;
+
+export const BoxButton = styled.button`
+ border: none;
+ background-color: transparent;
+ cursor: pointer;
+`;
