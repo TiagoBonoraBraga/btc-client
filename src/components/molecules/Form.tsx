@@ -2,13 +2,9 @@ import { BoxForm, LoginForm } from './MoleculesStyle/Form';
 import FormInput, { InputProps } from '../atoms/FormInput.js'
 import React, { FormEvent, useState } from 'react'
 
+import { LoginRequest } from '../../utils/types/requests';
 import Logo from '../atoms/Logo';
 import SubmitButton from '../atoms/SubmitButton.js';
-
-interface LoginRequest {
-  email: string;
-  password: string;
-}
 
 const Form = () => {
   const [email, setEmail] = useState("");
