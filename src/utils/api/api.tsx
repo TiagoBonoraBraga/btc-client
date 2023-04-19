@@ -65,7 +65,7 @@ export const api = {
     updateProduct: async (payload: UpdateProductRequest) => {
         try {
             const response = await axios.patch('/product/' + payload.id, {
-                product: payload.product,
+                name: payload.name,
                 commission: payload.commission,
                 ponctuation: payload.ponctuation
             });

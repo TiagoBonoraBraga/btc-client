@@ -4,14 +4,14 @@ export type LoginRequest = {
 };
 
 export type CreateProductRequest = {
-    product: string;
-    commission: string;
-    ponctuation: string;
+    name: string;
+    description: string;
+    score: string;
 };
 
 export type UpdateProductRequest = {
     id?: string;
-    product: string;
-    commission: string;
-    ponctuation: string;
+    name: string;
+    description: string;
+    score: string;
 }
