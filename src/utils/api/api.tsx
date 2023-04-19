@@ -2,7 +2,7 @@ import { CreateProductRequest, LoginRequest, UpdateProductRequest } from "../typ
 
 import axios from "axios"
 
-axios.defaults.baseURL = "deploy";
+axios.defaults.baseURL = "https://btc-server-production.up.railway.app/";
 axios.defaults.headers.post["Content-Type"] = "applications/json";
 
 axios.interceptors.request.use(
@@ -34,7 +34,7 @@ export const api = {
 
     getProducts: async () => {
         try {
-            const response = await axios.get('rota');
+            const response = await axios.get('/product');
             return response.data;
         } catch (error) {
             alert(error);
@@ -43,7 +43,7 @@ export const api = {
 
     getProductsById: async (id: string) => {
         try {
-            const response = await axios.get('rota/${id}');
+            const response = await axios.get('/product/${id}');
             if (!response.data) {
                 throw new Error("product not found");
             }
@@ -55,7 +55,7 @@ export const api = {
 
     createProduct: async (payload: CreateProductRequest) => {
         try {
-            const response = await axios.post("rota", payload);
+            const response = await axios.post("/product", payload);
             return response.data;
         } catch (error) {
             alert(error)
@@ -64,7 +64,7 @@ export const api = {
 
     updateProduct: async (payload: UpdateProductRequest) => {
         try {
-            const response = await axios.patch('rota/' + payload.id, {
+            const response = await axios.patch('/product/' + payload.id, {
                 product: payload.product,
                 commission: payload.commission,
                 ponctuation: payload.ponctuation
@@ -77,7 +77,7 @@ export const api = {
 
     deleteProduct: async (payload: string) => {
         try {
-            const response = await axios.delete(`rota${payload}`);
+            const response = await axios.delete(`/product/${payload}`);
             return response.data;
         } catch (error) {
             alert(error);
