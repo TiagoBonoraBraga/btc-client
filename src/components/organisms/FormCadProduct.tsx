@@ -1,15 +1,10 @@
 import React, { FormEvent, useState } from "react";
 
+import { CreateProductRequest } from "../../utils/types/requests";
 import FormInput from "../atoms/FormInput";
 import { StyleSubTitulo } from "./OrganismsStyle/FormCadStyle";
 import SubTitulo from "../atoms/SubTitle";
 import SubmitButton from "../atoms/SubmitButton";
-
-interface createRequest {
-  product: string;
-  commission: string;
-  ponctuation: string;
-}
 
 const FormCadProduct = () => {
   const [productValue, setProductValue] = useState("");
@@ -27,7 +22,7 @@ const FormCadProduct = () => {
     setProductValue("");
     setCommissionValue("");
     setPonctuationValue("");
-    const ProductPayLoad: createRequest = {
+    const ProductPayLoad: CreateProductRequest = {
       product: productValue,
       commission: commissionValue,
       ponctuation: ponctuationValue,
