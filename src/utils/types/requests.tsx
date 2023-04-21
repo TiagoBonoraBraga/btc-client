@@ -13,6 +13,7 @@ export type CreateProductRequest = {
 };
 
 export type UpdateProductRequest = {
+    commission: string;
     id: string;
     name: string;
     description: string;
