@@ -1,15 +1,20 @@
 import { CancButtom } from './AtomsStyles/Buttons';
 import React from 'react'
 
-type CancelButton = {
-    title: string;
-    onClick: () => void;
- }
+type CancelButtonProps = {
+  title: string;
+  onClick: () => void;
+};
 
-const CancelButton = ({title}: CancelButton) => {
-  return (
-    <CancButtom type='submit'>{title}</CancButtom>
-  )
+ export interface SubmitButtonProps {
+  onClick?: (event: React.FormEvent<HTMLFormElement>) => void;
+  title: string;
 }
+
+const CancelButton = ({ title, onClick }: CancelButtonProps) => {
+  return (
+    <CancButtom onClick={onClick}>{title}</CancButtom>
+  )
+};
 
 export default CancelButton
