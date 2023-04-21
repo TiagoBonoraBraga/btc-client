@@ -14,12 +14,12 @@ import SubTitulo from "../atoms/SubTitle";
 import SubmitButton from "../atoms/SubmitButton";
 
 interface ModalProps {
-  showModal: boolean;
+  show: boolean;
   handleClose: () => void;
 }
 
-const Modal: React.FC<ModalProps> = ({ showModal, handleClose }) => {
-  const [isOpen, setIsOpen] = useState(showModal);
+const Modal: React.FC<ModalProps> = ({ show, handleClose }) => {
+  const [isOpen, setIsOpen] = useState(show);
 
   const closeModal = () => {
     setIsOpen(false);
