@@ -4,16 +4,16 @@ import {FiEdit} from "react-icons/fi"
 import React from 'react'
 
 export type RowsProps = {
-    nome: string;
-    clientes: string;
-    usuarios: string;
-    situacao: string;
+    name: string;
+    clients: string;
+    users: string;
+    situation: string;
    
     
    
 }
 
-const Rows = ({ nome, clientes, usuarios, situacao}: RowsProps) => {
+const Rows = ({ name, clients, users, situation}: RowsProps) => {
    
    function handleClick() {
 
@@ -22,9 +22,9 @@ const Rows = ({ nome, clientes, usuarios, situacao}: RowsProps) => {
   return (
   
         <tr>
-            <td>{nome}</td>
-            <td>{clientes}</td>
-            <td>{usuarios}</td>
+            <td>{name}</td>
+            <td>{clients}</td>
+            <td>{users}</td>
             <td>
               <BoxButton onClick={handleClick}>
                 <FiEdit color="#2D9BF0" />
