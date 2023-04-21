@@ -57,7 +57,7 @@ const FormCadFranchisee = () => {
         value={nameValue}
         setValue={setNameValue}
         type={"text"}
-        required
+       
       />
 
       <FormInput
@@ -67,7 +67,7 @@ const FormCadFranchisee = () => {
         value={emailValue}
         setValue={setEmailValue}
         type={"email"}
-        required
+     
       />
 
       <FormInput
@@ -77,7 +77,7 @@ const FormCadFranchisee = () => {
         value={addressValue}
         setValue={setAddressValue}
         type={"text"}
-        required
+      
       />
 
       <FormInput
@@ -87,7 +87,7 @@ const FormCadFranchisee = () => {
         value={passwordValue}
         setValue={setPasswordValue}
         type={"password"}
-        required
+        
       />
 
       <FormInput
@@ -97,7 +97,7 @@ const FormCadFranchisee = () => {
         value={confirmPasswordValue}
         setValue={setConfirmPasswordValue}
         type={"password"}
-        required
+       
       />
 
       <SubmitButton title={"Enviar"} />
