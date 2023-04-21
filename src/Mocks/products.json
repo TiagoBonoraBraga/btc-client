@@ -1,0 +1,16 @@
+[
+  {
+    "name": "Produto 1",
+    "description": "Produto HyperLocal",
+    "commission": "20"
+  },
+  {
+    "name": "Produto 2",
+    "description": "Produto HyperLocal",
+    "commission": "20"
+  },
+  { "name": "Produto 3",
+   "description": "Produto HyperLocal",
+    "commission": "20"
+ }
+]
