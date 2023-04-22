@@ -6,15 +6,16 @@ import ModalProducts from "../../components/organisms/ModalProducts";
 export type RowsProductsProps = {
   name: string;
   description: string;
-  score: number;
+  score: string;
+  price: string;
 };
 
-const RowsProducts = ({ name, description, score }: RowsProductsProps) => {
+const RowsProducts = ({ name, description, score, price }: RowsProductsProps) => {
   const [showModalProducts, setShowModalProducts] = useState<boolean>(false);
   const [productSelect, setProductSelect] = useState<RowsProductsProps>();
 
   function handleClick() {
-    setProductSelect({ name, description, score });
+    setProductSelect({ name, description, score, price });
     setShowModalProducts(true);
   }
   function closeModal() {
@@ -31,6 +32,7 @@ const RowsProducts = ({ name, description, score }: RowsProductsProps) => {
         <td>{name}</td>
         <td>{description}</td>
         <td>{score}</td>
+        <td>{price}</td>
         <td>
           <BoxButton onClick={handleClick}>
             <FiEdit color="#2D9BF0" />
