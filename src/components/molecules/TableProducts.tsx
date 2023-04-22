@@ -4,9 +4,11 @@ import { BoxTable } from './MoleculesStyle/Table';
 import React from 'react'
 import TableHeadCel from '../atoms/TableHeadCel';
 
-type TableProductsProps = {
-    data: any;
-}
+export interface TableProductsProps {
+    data: RowsProductsProps[];
+    handleSelectProduct: (product: RowsProductsProps) => void;
+  }
+
 const TableProducts = ({data}: TableProductsProps) => {
   return (
     <BoxTable>
@@ -14,11 +16,13 @@ const TableProducts = ({data}: TableProductsProps) => {
             <TableHeadCel titulo="Nome" />
             <TableHeadCel titulo="Descrição" />
             <TableHeadCel titulo="Comissão" />
+            <TableHeadCel titulo="Score" />
+            <TableHeadCel titulo="Valor" />
             <TableHeadCel titulo="Editar" />
         </thead>
          <tbody>
             {data.map((row: RowsProductsProps, index: any) =>
-                <RowsProducts key={index}  nome={row.nome} descricao={row.descricao} comissao={row.comissao}/>
+                <RowsProducts key={index} name={row.name} description={row.description}  commission={`${row.commission}%`} score={`${row.score}%`} price={`R$ ${row.price}`}/>
             )}
         </tbody>
     </BoxTable>

@@ -7,8 +7,8 @@ export type LoginRequest = {
 //crud
 export type CreateProductRequest = {
     name: string;
-    description: string; 
-    commission: number  
+    description: string;
+    commission: number;   
     score: number;
     price: number;
 };
@@ -17,7 +17,6 @@ export type UpdateProductRequest = {
     id: string;
     name: string;
     description: string;
-    commission: number 
     score: number;
     price: number;
 }

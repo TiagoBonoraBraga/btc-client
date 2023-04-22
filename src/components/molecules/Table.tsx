@@ -26,7 +26,7 @@ const Table = ({ data }: TableProps) => {
             </thead>
             <tbody>
                 {data.map((row: RowsProps, index: any) =>
-                    <Rows key={index}  nome={row.nome} clientes={row.clientes} usuarios={row.usuarios} situacao={row.situacao} />
+                    <Rows key={index}  name={row.name} clients={row.clients} users={row.users} situation={row.situation} />
                 )}
             </tbody>
         </BoxTable>

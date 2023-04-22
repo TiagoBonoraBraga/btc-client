@@ -1,15 +1,17 @@
-import { SubButtom } from './AtomsStyles/Buttons';
-import React from 'react'
+import { SubButtom } from "./AtomsStyles/Buttons";
+import React from "react";
 
 type SubmitButton = {
-    title: string;
-    
- }
+  title: string;
+};
 
-const SubmitButton = ({title}: SubmitButton) => {
-  return (
-    <SubButtom type='submit'>{title}</SubButtom>
-  )
+export interface SubmitButtonProps {
+  onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
+  title: string;
 }
 
-export default SubmitButton
+const SubmitButton = ({ title, onClick }: SubmitButtonProps) => {
+  return <SubButtom type="submit" onClick={onClick}>{title}</SubButtom>;
+};
+
+export default SubmitButton;
