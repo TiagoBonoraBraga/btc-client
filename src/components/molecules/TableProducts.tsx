@@ -15,12 +15,13 @@ const TableProducts = ({data}: TableProductsProps) => {
         <thead>                
             <TableHeadCel titulo="Nome" />
             <TableHeadCel titulo="Descrição" />
-            <TableHeadCel titulo="Comissão" />
+            <TableHeadCel titulo="Score" />
+            <TableHeadCel titulo="Valor" />
             <TableHeadCel titulo="Editar" />
         </thead>
          <tbody>
             {data.map((row: RowsProductsProps, index: any) =>
-                <RowsProducts key={index}  name={row.name} description={row.description} commission={row.commission}/>
+                <RowsProducts key={index} name={row.name} description={row.description} score={`${row.score}%`} price={`R$ ${row.price}`}/>
             )}
         </tbody>
     </BoxTable>
