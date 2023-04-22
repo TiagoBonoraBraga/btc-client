@@ -20,8 +20,8 @@ const Products = () => {
     fetchData();
   }, []);
 
-  function handleSelectProduct(product: RowsProductsProps) {
-    setSelectedProduct(product);
+  function handleSelectProduct(products: RowsProductsProps) {
+    setSelectedProduct(products);
   }
 
   return (
