@@ -8,24 +8,32 @@ import SubmitButton from "../atoms/SubmitButton";
 
 const FormCadProduct = () => {
   const [productValue, setProductValue] = useState("");
+  const [descriptionValue, setDescriptionValue] = useState("");
   const [commissionValue, setCommissionValue] = useState("");
   const [ponctuationValue, setPonctuationValue] = useState("");
+  const [priceValue, setPriceValue] = useState("");
 
   const handleInputChange = (value: string) => {
     setProductValue(value);
+    setDescriptionValue(value);
     setCommissionValue(value);
     setPonctuationValue(value);
+    setPriceValue(value);
   };
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     setProductValue("");
+    setDescriptionValue("");
     setCommissionValue("");
     setPonctuationValue("");
+    setPriceValue("");
     const ProductPayLoad: CreateProductRequest = {
-      product: productValue,
+      name: productValue,
+      description: descriptionValue,
       commission: commissionValue,
-      ponctuation: ponctuationValue,
+      score: ponctuationValue,
+      price: priceValue,
     };
     console.log(ProductPayLoad);
   };
@@ -45,6 +53,15 @@ const FormCadProduct = () => {
       />
 
       <FormInput
+        label={"Descrição"}
+        id={"description"}
+        placeholder={"Descrição do Produto"}
+        value={descriptionValue}
+        setValue={setDescriptionValue}
+        type={"text"}
+      />
+
+      <FormInput
         label={"Comissão"}
         id={"commission"}
         placeholder={"0%"}
@@ -59,6 +76,15 @@ const FormCadProduct = () => {
         placeholder={"Pontos"}
         value={ponctuationValue}
         setValue={setPonctuationValue}
+        type={"text"}
+      />
+
+      <FormInput
+        label={"Valor"}
+        id={"price"}
+        placeholder={"R$"}
+        value={priceValue}
+        setValue={setPriceValue}
         type={"text"}
       />
 
