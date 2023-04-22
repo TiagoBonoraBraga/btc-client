@@ -17,6 +17,7 @@ export type UpdateProductRequest = {
     id: string;
     name: string;
     description: string;
+    commission: number;
     score: number;
     price: number;
 }
