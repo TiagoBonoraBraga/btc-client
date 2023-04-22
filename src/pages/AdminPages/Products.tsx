@@ -1,16 +1,24 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { BoxTable } from '../StylePages/Franchised'
 import Header from '../../components/organisms/Header'
 import SubTitle from '../../components/atoms/SubTitle'
 import TableProducts from '../../components/molecules/TableProducts'
-import products from "../../Mocks/products.json"
 import { RowsProductsProps } from '../../components/atoms/RowsProducts';
 import ModalProducts from '../../components/organisms/ModalProducts';
+import { api } from '../../utils/api/api';
 
 const Products = () => {
 
-  const [rows, setRows] = useState(products);
+  const [rows, setRows] = useState<RowsProductsProps[]>([]);
   const [selectedProduct, setSelectedProduct] = useState<RowsProductsProps | undefined>(undefined);
+
+  useEffect(() => {
+    async function fetchData() {
+      const products = await api.getProducts();
+      setRows(products);
+    }
+    fetchData();
+  }, []);
 
   function handleSelectProduct(product: RowsProductsProps) {
     setSelectedProduct(product);
