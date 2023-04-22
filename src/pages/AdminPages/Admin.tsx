@@ -33,9 +33,9 @@ const Admin = () => {
     setLogo(true)
     setInfo({ ...initialState, FormCadFranchisee: false });
   }, []);
-  const handleClose = () => {
+  /* const handleClose = () => {
     setShowModal(false);
-  };
+  }; */
   const handleClickFranc = () => {
     setLogo(false);
     setInfo({ ...initialState, FormCadFranchisee: true });
@@ -53,7 +53,7 @@ const Admin = () => {
   
   return (
     <>
-    <Modal showModal={true} handleClose={function (): void {
+    <Modal show={true} handleClose={function (): void {
         throw new Error("Function not implemented.");
       } }></Modal>
       <Header />
