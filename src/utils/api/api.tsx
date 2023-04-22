@@ -2,7 +2,7 @@ import { CreateProductRequest, LoginRequest, UpdateProductRequest } from "../typ
 
 import axios from "axios"
 
-axios.defaults.baseURL = "postgresql://postgres:osAnm6uSWQlX6hh04yj8@containers-us-west-111.railway.app:6619/railway";
+axios.defaults.baseURL = "http://postgres:osAnm6uSWQlX6hh04yj8@containers-us-west-111.railway.app:6619/railway";
 axios.defaults.headers.post["Content-Type"] = "applications/json";
 
 axios.interceptors.request.use(
