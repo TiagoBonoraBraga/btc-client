@@ -25,6 +25,8 @@ interface updatedRequest {
   name: string;
   description: string;
   commission: string;
+  score: string;
+  price: string;
 }
 
 const ModalProducts: React.FC<ModalProps> = ({
@@ -37,12 +39,13 @@ const ModalProducts: React.FC<ModalProps> = ({
     name: productSelect?.name || "",
     description: productSelect?.description || "",
     commission: productSelect?.commission || "",
+    score: productSelect?.score || "",
+    price: productSelect?.score || "",
   });
-  
+
   const obj = { ...formValues };
   const isEditing = Boolean(productSelect);
 
-  
   const handleSubmit = (
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
@@ -51,6 +54,8 @@ const ModalProducts: React.FC<ModalProps> = ({
       name: formValues.name,
       description: formValues.description,
       commission: formValues.commission,
+      score: formValues.score,
+      price: formValues.price,
     };
     console.log(updatedProduct);
     handleClose();
@@ -88,7 +93,7 @@ const ModalProducts: React.FC<ModalProps> = ({
               setValue={setFormValues}
             />
             <FormInput
-              label={"Produto"}
+              label={"Descrição"}
               id={"product-description"}
               placeholder={""}
               value={formValues.description}
@@ -101,13 +106,39 @@ const ModalProducts: React.FC<ModalProps> = ({
               type={"text"}
               setValue={setFormValues}
             />
+
             <FormInput
               label={"Comissão"}
               id={"product-commission"}
               placeholder={""}
               value={formValues.commission}
               onChange={(event) =>
-                setFormValues({ ...formValues, commission: event.target.value })
+                setFormValues({
+                  ...formValues,
+                  commission: event.target.value,
+                })
+              }
+              type={"text"}
+              setValue={setFormValues}
+            />
+            <FormInput
+              label={"Score"}
+              id={"product-Score"}
+              placeholder={""}
+              value={formValues.score}
+              onChange={(event) =>
+                setFormValues({ ...formValues, score: event.target.value })
+              }
+              type={"text"}
+              setValue={setFormValues}
+            />
+            <FormInput
+              label={"Valor"}
+              id={"product-price"}
+              placeholder={""}
+              value={formValues.price}
+              onChange={(event) =>
+                setFormValues({ ...formValues, price: event.target.value })
               }
               type={"text"}
               setValue={setFormValues}
