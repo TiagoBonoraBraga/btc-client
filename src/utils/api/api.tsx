@@ -2,7 +2,7 @@ import { CreateProductRequest, LoginRequest, UpdateProductRequest } from "../typ
 
 import axios from "axios"
 
-axios.defaults.baseURL = "postgresql://postgres:osAnm6uSWQlX6hh04yj8@containers-us-west-111.railway.app:6619/railway";
+axios.defaults.baseURL = "btc-server-production-3ecc.up.railway.app";
 axios.defaults.headers.post["Content-Type"] = "applications/json";
 
 axios.interceptors.request.use(
@@ -34,7 +34,7 @@ export const api = {
 
     getProducts: async () => {
         try {
-            const response = await axios.get('/product');
+            const response = await axios.get('https://btc-server-production-3ecc.up.railway.app/product');
             return response.data;
         } catch (error) {
             alert(error);
@@ -83,6 +83,5 @@ export const api = {
             alert(error);
         }
     }
-
 
 }
