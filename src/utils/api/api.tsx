@@ -53,9 +53,9 @@ export const api = {
         }
     },
 
-    createProduct: async (payload: CreateProductRequest) => {
+    createProduct: async (ProductPayLoad: CreateProductRequest) => {
         try {
-            const response = await axios.post("/product", payload);
+            const response = await axios.post("/product", ProductPayLoad);
             return response.data;
         } catch (error) {
             alert(error)
