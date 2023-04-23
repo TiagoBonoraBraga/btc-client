@@ -2,7 +2,7 @@ import { CreateProductRequest, LoginRequest, UpdateProductRequest } from "../typ
 
 import axios from "axios"
 
-axios.defaults.baseURL = "btc-server-production-3ecc.up.railway.app";
+axios.defaults.baseURL = "https://btc-server-production-3ecc.up.railway.app";
 axios.defaults.headers.post["Content-Type"] = "applications/json";
 
 axios.interceptors.request.use(
@@ -34,7 +34,7 @@ export const api = {
 
     getProducts: async () => {
         try {
-            const response = await axios.get('https://btc-server-production-3ecc.up.railway.app/product');
+            const response = await axios.get('/product');
             return response.data;
         } catch (error) {
             alert(error);
