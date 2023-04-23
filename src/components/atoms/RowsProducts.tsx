@@ -6,9 +6,9 @@ import ModalProducts from "../../components/organisms/ModalProducts";
 export type RowsProductsProps = {
   name: string;
   description: string;
-  commission: string;
-  score: string;
-  price: string;
+  commission: number;
+  score: number;
+  price: number;
 };
 
 const RowsProducts = ({ name, description, commission, score, price }: RowsProductsProps) => {
@@ -25,7 +25,7 @@ const RowsProducts = ({ name, description, commission, score, price }: RowsProdu
 
   useEffect(() => {
     console.log(productSelect);
-    console.log(productSelect?.commission)
+    
   }, [productSelect]);
   
   return (
