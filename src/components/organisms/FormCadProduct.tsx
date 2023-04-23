@@ -7,35 +7,52 @@ import SubTitulo from "../atoms/SubTitle";
 import SubmitButton from "../atoms/SubmitButton";
 
 const FormCadProduct = () => {
-  const [productValue, setProductValue] = useState("");
-  const [descriptionValue, setDescriptionValue] = useState("");
-  const [commissionValue, setCommissionValue] = useState("");
-  const [ponctuationValue, setPonctuationValue] = useState("");
-  const [priceValue, setPriceValue] = useState("");
+  const [productName, setProductName] = useState<string>("");
+  const [description, setDescription] = useState<string>("");
+  const [commission, setCommission] = useState<number>();
+  const [score, setScore] = useState<number>();
+  const [price, setPrice] = useState<number>();
 
-  const handleInputChange = (value: string) => {
-    setProductValue(value);
-    setDescriptionValue(value);
-    setCommissionValue(value);
-    setPonctuationValue(value);
-    setPriceValue(value);
+  const handleProductNameChange = (value: string) => {
+    setProductName(value);
+  };
+
+  const handleDescriptionChange = (value: string) => {
+    setDescription(value);
+  };
+
+  const handleCommissionChange = (value: string) => {
+    const parsedValue = parseFloat(value);
+    setCommission(isNaN(parsedValue) ? undefined : parsedValue);
+  };
+
+  const handleScoreChange = (value: string) => {
+    const parsedValue = parseFloat(value);
+    setScore(isNaN(parsedValue) ? undefined : parsedValue);
+  };
+
+  const handlePriceChange = (value: string) => {
+    const parsedValue = parseFloat(value.replace(",", "."));
+    setPrice(isNaN(parsedValue) ? undefined : parsedValue);
   };
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    setProductValue("");
-    setDescriptionValue("");
-    setCommissionValue("");
-    setPonctuationValue("");
-    setPriceValue("");
-    const ProductPayLoad: CreateProductRequest = {
-      name: productValue,
-      description: descriptionValue,
-      commission: commissionValue,
-      score: ponctuationValue,
-      price: priceValue,
-    };
-    console.log(ProductPayLoad);
+    if (productName && description && commission !== undefined && score !== undefined && price !== undefined) {
+      const ProductPayLoad: CreateProductRequest = {
+        name: productName,
+        description,
+        commission,
+        score,
+        price,
+      };
+      console.log(ProductPayLoad);
+      setProductName("");
+      setDescription("");
+      setCommission(undefined);
+      setScore(undefined);
+      setPrice(undefined);
+    }
   };
 
   return (
@@ -47,8 +64,8 @@ const FormCadProduct = () => {
         label={"Produto"}
         id={"product"}
         placeholder={"Produto"}
-        value={productValue}
-        setValue={setProductValue}
+        value={productName}
+        setValue={handleProductNameChange}
         type={"text"}
       />
 
@@ -56,8 +73,8 @@ const FormCadProduct = () => {
         label={"Descrição"}
         id={"description"}
         placeholder={"Descrição do Produto"}
-        value={descriptionValue}
-        setValue={setDescriptionValue}
+        value={description}
+        setValue={handleDescriptionChange}
         type={"text"}
       />
 
@@ -65,8 +82,8 @@ const FormCadProduct = () => {
         label={"Comissão"}
         id={"commission"}
         placeholder={"0%"}
-        value={commissionValue}
-        setValue={setCommissionValue}
+        value={commission?.toString() || ""}
+        setValue={handleCommissionChange}
         type={"text"}
       />
 
@@ -74,8 +91,8 @@ const FormCadProduct = () => {
         label={"Pontuação"}
         id={"punctuation"}
         placeholder={"Pontos"}
-        value={ponctuationValue}
-        setValue={setPonctuationValue}
+        value={score?.toString() || ""}
+        setValue={handleScoreChange}
         type={"text"}
       />
 
@@ -83,8 +100,8 @@ const FormCadProduct = () => {
         label={"Valor"}
         id={"price"}
         placeholder={"R$"}
-        value={priceValue}
-        setValue={setPriceValue}
+        value={price?.toString().replace(".", ",") || ""}
+        setValue={handlePriceChange}
         type={"text"}
       />
 
