@@ -36,7 +36,7 @@ const Products = () => {
             handleClose={() => setSelectedProduct(undefined)}
             productSelect={selectedProduct} onSave={function (product: RowsProductsProps): void {
               throw new Error('Function not implemented.')
-            } }          />
+            } } id={0}          />
         )}
       </BoxTable>    
     </>
