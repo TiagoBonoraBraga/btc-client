@@ -1,10 +1,10 @@
 import React, { FormEvent, useState } from "react";
-
 import { CreateProductRequest } from "../../utils/types/requests";
 import FormInput from "../atoms/FormInput";
 import { StyleSubTitulo } from "./OrganismsStyle/FormCadStyle";
 import SubTitulo from "../atoms/SubTitle";
 import SubmitButton from "../atoms/SubmitButton";
+import { api } from "../../utils/api/api";
 
 const FormCadProduct = () => {
   const [productName, setProductName] = useState<string>("");
@@ -36,17 +36,19 @@ const FormCadProduct = () => {
     setPrice(isNaN(parsedValue) ? undefined : parsedValue);
   };
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (productName && description && commission !== undefined && score !== undefined && price !== undefined) {
       const ProductPayLoad: CreateProductRequest = {
         name: productName,
-        description,
-        commission,
-        score,
-        price,
+        description: description,
+        commission: commission,
+        score: score,
+        price: price,
       };
-      console.log(ProductPayLoad);
+      console.log(ProductPayLoad)
+      await api.createProduct(ProductPayLoad);
+      
       setProductName("");
       setDescription("");
       setCommission(undefined);
@@ -63,7 +65,7 @@ const FormCadProduct = () => {
       <FormInput
         label={"Produto"}
         id={"product"}
-        placeholder={"Produto"}
+        placeholder={"Nome do Produto"}
         value={productName}
         setValue={handleProductNameChange}
         type={"text"}
