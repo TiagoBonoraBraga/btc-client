@@ -55,8 +55,9 @@ export const api = {
 
     createProduct: async (ProductPayLoad: CreateProductRequest) => {
         try {
-            const response = await axios.post("/product", ProductPayLoad);
-            return response.data;
+            const response = await axios.post('/product', ProductPayLoad);
+            console.log(response)
+            return (response.data);
         } catch (error) {
             alert(error)
         }
@@ -69,6 +70,7 @@ export const api = {
                 commission: payload.commission,
                 score: payload.score
             });
+            console.log()
             return response.data;
         } catch (error) {
             alert(error);
