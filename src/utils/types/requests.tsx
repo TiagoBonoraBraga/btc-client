@@ -6,6 +6,7 @@ export type LoginRequest = {
 
 //crud
 export type CreateProductRequest = {
+    id?: number,
     name: string;
     description: string;
     commission: number;   
@@ -14,7 +15,7 @@ export type CreateProductRequest = {
 };
 
 export type UpdateProductRequest = {
-    id: string;
+    id: number;
     name: string;
     description: string;
     commission: number;
