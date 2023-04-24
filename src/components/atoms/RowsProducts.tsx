@@ -4,19 +4,20 @@ import React, { useEffect, useState } from "react";
 import ModalProducts from "../../components/organisms/ModalProducts";
 
 export type RowsProductsProps = {
+  id: number,
   name: string;
   description: string;
-  commission: number;
-  score: number;
-  price: number;
+  commission: string | number;
+  score: string | number;
+  price: string | number;
 };
 
-const RowsProducts = ({ name, description, commission, score, price }: RowsProductsProps) => {
+const RowsProducts = ({id, name, description, commission, score, price }: RowsProductsProps) => {
   const [showModalProducts, setShowModalProducts] = useState<boolean>(false);
   const [productSelect, setProductSelect] = useState<RowsProductsProps>();
 
   function handleClick() {
-    setProductSelect({ name, description, score, commission, price });
+    setProductSelect({ id, name, description, score, commission, price });
     setShowModalProducts(true);
   }
   function closeModal() {
@@ -45,13 +46,12 @@ const RowsProducts = ({ name, description, commission, score, price }: RowsProdu
       <td>
   {showModalProducts && (
     <ModalProducts
-      show={showModalProducts}
-      handleClose={closeModal}
-      productSelect={productSelect}
-      onSave={function (product: RowsProductsProps): void {
-        throw new Error("Function not implemented.");
-      }}
-    />
+            show={showModalProducts}
+            handleClose={closeModal}
+            productSelect={productSelect}
+            onSave={function (product: RowsProductsProps): void {
+              throw new Error("Function not implemented.");
+            } } id={0}    />
   )}
 </td>
     </>
