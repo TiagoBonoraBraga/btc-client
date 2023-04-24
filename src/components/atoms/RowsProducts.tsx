@@ -3,19 +3,21 @@ import { FiEdit } from 'react-icons/fi';
 import React from 'react'
 
 export type RowsProductsProps = {
-    nome: string;
+    name: string;
     descricao: string;
-    comissao: number; 
+    score: string; 
+    // price: string;
 }
-const RowsProducts = ({nome, descricao, comissao}: RowsProductsProps ) => {
+const RowsProducts = ({name, descricao, score}: RowsProductsProps ) => {
   function handleClick() {
 
   }
   return (
     <tr>
-        <td>{nome}</td>
+        <td>{name}</td>
         <td>{descricao}</td>
-        <td>{comissao}</td>
+        <td>{score}</td>
+        {/* <td>{price}</td> */}
         <td>
         <BoxButton onClick={handleClick}>
           <FiEdit color="#2D9BF0" />

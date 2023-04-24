@@ -8,7 +8,7 @@ export type LoginRequest = {
 export type CreateProductRequest = {
     name: string;
     description: string;   
-    score: number;
+    score: string;
     price: number;
 };
 

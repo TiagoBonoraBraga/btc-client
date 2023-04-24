@@ -6,6 +6,7 @@ import TableHeadCel from '../atoms/TableHeadCel';
 
 type TableProductsProps = {
     data: any;
+    
 }
 const TableProducts = ({data}: TableProductsProps) => {
   return (
@@ -13,12 +14,13 @@ const TableProducts = ({data}: TableProductsProps) => {
         <thead>                
             <TableHeadCel titulo="Nome" />
             <TableHeadCel titulo="Descrição" />
-            <TableHeadCel titulo="Comissão" />
+            <TableHeadCel titulo="Score" />
+            {/* <TableHeadCel titulo="Price" /> */}
             <TableHeadCel titulo="Editar" />
         </thead>
          <tbody>
             {data.map((row: RowsProductsProps, index: any) =>
-                <RowsProducts key={index}  nome={row.nome} descricao={row.descricao} comissao={row.comissao}/>
+                <RowsProducts key={index}  name={row.name} descricao={row.descricao} score={row.score} />
             )}
         </tbody>
     </BoxTable>
