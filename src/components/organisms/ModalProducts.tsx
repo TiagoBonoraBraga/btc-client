@@ -13,20 +13,25 @@ import {
   ModalOverlay,
   ModalTitleWrapper,
 } from "../molecules/MoleculesStyle/Modal";
+import { api } from "../../utils/api/api";
+
 
 interface ModalProps {
+  id: number,
   show: boolean;
   productSelect?: RowsProductsProps;
   handleClose: () => void;
   onSave: (product: RowsProductsProps) => void;
 }
 
+
 interface updatedRequest {
+  id: number,
   name: string;
   description: string;
-  commission: string;
-  score: string;
-  price: string;
+  commission: number;
+  score: number;
+  price: number;
 }
 
 const ModalProducts: React.FC<ModalProps> = ({
@@ -36,28 +41,29 @@ const ModalProducts: React.FC<ModalProps> = ({
   onSave,
 }) => {
   const [formValues, setFormValues] = useState<RowsProductsProps>({
+    id: productSelect?.id || 0,
     name: productSelect?.name || "",
     description: productSelect?.description || "",
-    commission: productSelect?.commission || "",
-    score: productSelect?.score || "",
-    price: productSelect?.score || "",
+    commission: productSelect?.commission || 0,
+    score: productSelect?.score || 0,
+    price: productSelect?.price || 0,
   });
+  console.log(productSelect)
 
-  const obj = { ...formValues };
-  const isEditing = Boolean(productSelect);
-
-  const handleSubmit = (
+  const handleSubmit = async (
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
     event.preventDefault();
-    const updatedProduct: updatedRequest = {
+    const updatedProductPayload: updatedRequest = {
+      id: formValues.id,
       name: formValues.name,
       description: formValues.description,
-      commission: formValues.commission,
-      score: formValues.score,
-      price: formValues.price,
+      commission: +formValues.commission,
+      score: +formValues.score,
+      price: +formValues.price,
     };
-    console.log(updatedProduct);
+    console.log(updatedProductPayload);
+    await api.updateProduct(updatedProductPayload);
     handleClose();
   };
 
@@ -75,7 +81,7 @@ const ModalProducts: React.FC<ModalProps> = ({
       <ModalContainer onClick={(e) => e.stopPropagation()}>
         <ModalHeader>
           <ModalTitleWrapper>
-            <SubTitulo titulo={isEditing ? "Editar Produto" : "Novo Produto"} />
+            <SubTitulo titulo={"Editar Produto"}/>
           </ModalTitleWrapper>
           <ModalCloseButton onClick={handleClose}>×</ModalCloseButton>
         </ModalHeader>
@@ -111,34 +117,39 @@ const ModalProducts: React.FC<ModalProps> = ({
               label={"Comissão"}
               id={"product-commission"}
               placeholder={""}
-              value={formValues.commission}
+              value={formValues.commission?.toString() || ""}
               onChange={(event) =>
                 setFormValues({
                   ...formValues,
-                  commission: event.target.value,
+                  commission: parseInt(event.target.value),
                 })
               }
               type={"text"}
               setValue={setFormValues}
             />
+
             <FormInput
               label={"Score"}
               id={"product-Score"}
               placeholder={""}
-              value={formValues.score}
+              value={formValues.score.toString()} // converter para string para evitar warning
               onChange={(event) =>
-                setFormValues({ ...formValues, score: event.target.value })
+                setFormValues({
+                  ...formValues,
+                  score: parseFloat(event.target.value),
+                })
               }
               type={"text"}
               setValue={setFormValues}
             />
+
             <FormInput
               label={"Valor"}
               id={"product-price"}
               placeholder={""}
-              value={formValues.price}
+              value={formValues.price.toString()}
               onChange={(event) =>
-                setFormValues({ ...formValues, price: event.target.value })
+                setFormValues({ ...formValues, price: parseFloat(event.target.value) })
               }
               type={"text"}
               setValue={setFormValues}
