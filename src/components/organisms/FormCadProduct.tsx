@@ -6,15 +6,18 @@ import SubTitulo from "../atoms/SubTitle";
 import SubmitButton from "../atoms/SubmitButton";
 import { api } from "../../utils/api/api";
 
+
+
 const FormCadProduct = () => {
-  const [productName, setProductName] = useState<string>("");
+  const [name, setName] = useState<string>("");
   const [description, setDescription] = useState<string>("");
   const [commission, setCommission] = useState<number>();
   const [score, setScore] = useState<number>();
   const [price, setPrice] = useState<number>();
 
+    
   const handleProductNameChange = (value: string) => {
-    setProductName(value);
+    setName(value);
   };
 
   const handleDescriptionChange = (value: string) => {
@@ -38,9 +41,9 @@ const FormCadProduct = () => {
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    if (productName && description && commission !== undefined && score !== undefined && price !== undefined) {
+    if (name && description && commission !== undefined && score !== undefined && price !== undefined) {
       const ProductPayLoad: CreateProductRequest = {
-        name: productName,
+        name: name,
         description: description,
         commission: commission,
         score: score,
@@ -48,8 +51,8 @@ const FormCadProduct = () => {
       };
       console.log(ProductPayLoad)
       await api.createProduct(ProductPayLoad);
-      
-      setProductName("");
+
+      setName("");
       setDescription("");
       setCommission(undefined);
       setScore(undefined);
@@ -66,7 +69,7 @@ const FormCadProduct = () => {
         label={"Produto"}
         id={"product"}
         placeholder={"Nome do Produto"}
-        value={productName}
+        value={name}
         setValue={handleProductNameChange}
         type={"text"}
       />
