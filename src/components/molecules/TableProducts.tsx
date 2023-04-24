@@ -22,7 +22,7 @@ const TableProducts = ({data}: TableProductsProps) => {
         </thead>
          <tbody>
             {data.map((row: RowsProductsProps, index: any) =>
-                <RowsProducts key={index} name={row.name} description={row.description}  commission={`${row.commission}%`} score={`${row.score}%`} price={`R$ ${row.price}`}/>
+                <RowsProducts key={index} name={row.name} description={row.description} commission={`${row.commission}%`} score={`${row.score}%`} price={`R$ ${row.price}`} id={row.id}/>
             )}
         </tbody>
     </BoxTable>
