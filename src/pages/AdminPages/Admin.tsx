@@ -53,9 +53,9 @@ const Admin = () => {
   
   return (
     <>
-    <Modal show={true} handleClose={function (): void {
+    {/* <Modal show={true} handleClose={function (): void {
         throw new Error("Function not implemented.");
-      } }></Modal>
+      } }></Modal> */}
       <Header />
       <Section>
         <LeftDiv>
