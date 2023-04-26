@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
+
 import { BoxTable } from '../StylePages/Franchised'
 import Header from '../../components/organisms/Header'
+import ModalProducts from '../../components/organisms/ModalProducts';
+import { RowsProductsProps } from '../../components/atoms/RowsProducts';
 import SubTitle from '../../components/atoms/SubTitle'
 import TableProducts from '../../components/molecules/TableProducts'
-import { RowsProductsProps } from '../../components/atoms/RowsProducts';
-import ModalProducts from '../../components/organisms/ModalProducts';
 import { api } from '../../utils/api/api';
 
 const Products = () => {
@@ -36,7 +37,7 @@ const Products = () => {
             handleClose={() => setSelectedProduct(undefined)}
             productSelect={selectedProduct} onSave={function (product: RowsProductsProps): void {
               throw new Error('Function not implemented.')
-            } } id={0}          />
+            } } id={"0"}          />
         )}
       </BoxTable>    
     </>

@@ -23,12 +23,11 @@ export type UpdateProductRequest = {
 };
 
 export type CreateClientRequest = {
-  
+  // idFranchise: string;
   name: string;
-  adress: string;
-  cep: string;
   cpf: string;
-  fone: string;
+  phone: string;
+  email: string;
 };
 
 export type CreateFranchisedRequest = {

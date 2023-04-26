@@ -15,27 +15,24 @@ import { api } from "../../utils/api/api";
 
 const FormCadClient = () => {
   const [nameValue, setNameValue] = useState("");
-  const [cepValue, setCepValue] = useState("");
-  const [addressValue, setAddressValue] = useState("");
+  const [emailValue, setEmailValue] = useState(""); 
   const [cpfValue, setCpfValue] = useState("");
-  const [foneValue, setFoneValue] = useState("");
+  const [phoneValue, setPhoneValue] = useState("");
   const [error, setError] = useState<boolean>(false);
 
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setNameValue("");
-    setCepValue("");
-    setAddressValue("");
+    setEmailValue("");    
     setCpfValue("");
-    setFoneValue("");
+    setPhoneValue("");
 
     const clientPayLoad: CreateClientRequest = {
-      name: nameValue,
-      cep: cepValue,
-      adress: addressValue,
+      name: nameValue, 
+      email: emailValue,     
       cpf: cpfValue,
-      fone: foneValue,
+      phone: phoneValue,
     };
     console.log(clientPayLoad);
     const clientData = await api.createClient(clientPayLoad);
@@ -61,22 +58,13 @@ const FormCadClient = () => {
       />
 
       <FormInput
-        label={"Endereço:"}
-        id={"address"}
-        placeholder={"Endereço"}
-        value={addressValue}
-        setValue={setAddressValue}
+        label={"Email:"}
+        id={"email"}
+        placeholder={"Digite seu email"}
+        value={emailValue}
+        setValue={setEmailValue}
         type={"text"}
-      />
-
-      <FormInput
-        label={"Cep:"}
-        id={"cep"}
-        placeholder={"Digite o cep"}
-        value={cepValue}
-        setValue={setCepValue}
-        type={"text"}
-      />
+      />     
 
       <FormInput
         label={"Cpf:"}
@@ -91,8 +79,8 @@ const FormCadClient = () => {
         label={"Fone:"}
         id={"fone"}
         placeholder={"Digite seu fone"}
-        value={foneValue}
-        setValue={setFoneValue}
+        value={phoneValue}
+        setValue={setPhoneValue}
         type={"text"}
       />
 
