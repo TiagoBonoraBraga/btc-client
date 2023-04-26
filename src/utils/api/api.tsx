@@ -7,7 +7,8 @@ import {
 import axios from "axios";
 
 axios.defaults.baseURL = 'https://btc-server-production-3ecc.up.railway.app/';
-axios.defaults.headers.post["Content-Type"] = "applications/json";
+//axios.defaults.baseURL = "http://localhost:3333"
+axios.defaults.headers.post["Content-Type"] = "application/json";
 
 axios.interceptors.request.use(
   function (config) {
