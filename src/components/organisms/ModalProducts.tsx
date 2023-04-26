@@ -17,7 +17,7 @@ import { api } from "../../utils/api/api";
 
 
 interface ModalProps {
-  id: number,
+  id: string,
   show: boolean;
   productSelect?: RowsProductsProps;
   handleClose: () => void;
@@ -26,7 +26,7 @@ interface ModalProps {
 
 
 interface updatedRequest {
-  id: number,
+  id: string,
   name: string;
   description: string;
   commission: number;
@@ -41,7 +41,7 @@ const ModalProducts: React.FC<ModalProps> = ({
   onSave,
 }) => {
   const [formValues, setFormValues] = useState<RowsProductsProps>({
-    id: productSelect?.id || 0,
+    id: productSelect?.id || "",
     name: productSelect?.name || "",
     description: productSelect?.description || "",
     commission: productSelect?.commission || 0,

@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import ModalProducts from "../../components/organisms/ModalProducts";
 
 export type RowsProductsProps = {
-  id: number,
+  id: string,
   name: string;
   description: string;
   commission: string | number;
@@ -51,7 +51,7 @@ const RowsProducts = ({id, name, description, commission, score, price }: RowsPr
             productSelect={productSelect}
             onSave={function (product: RowsProductsProps): void {
               throw new Error("Function not implemented.");
-            } } id={0}    />
+            } } id={""}    />
   )}
 </td>
     </>
