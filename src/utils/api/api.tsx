@@ -8,14 +8,8 @@ import {
 import axios from "axios";
 
 axios.defaults.baseURL = 'https://btc-server-production-3ecc.up.railway.app/';
-<<<<<<< HEAD
 //axios.defaults.baseURL = "http://localhost:3333"
-
 axios.defaults.headers.post["Content-Type"] = "application/json";
-=======
-axios.defaults.headers.post["Content-Type"] = "applications/json";
->>>>>>> ef4cf09cfeaef1119ee93742768ae9f46871a745
-
 axios.interceptors.request.use(
   function (config) {
     const token = localStorage.getItem("token");
