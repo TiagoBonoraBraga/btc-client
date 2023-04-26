@@ -5,63 +5,52 @@ import { StyleSubTitulo } from "./OrganismsStyle/FormCadStyle";
 import SubTitulo from "../atoms/SubTitle";
 import SubmitButton from "../atoms/SubmitButton";
 import { api } from "../../utils/api/api";
-
-
+import FormInputNumber from "../atoms/FomInputNumber";
 
 const FormCadProduct = () => {
-  const [name, setName] = useState<string>("");
-  const [description, setDescription] = useState<string>("");
-  const [commission, setCommission] = useState<number>();
-  const [score, setScore] = useState<number>();
-  const [price, setPrice] = useState<number>();
- /* const [id, setId] = useState<number>();
- */
-/* const handleProductIdChange = (value: number | undefined) => {
-    setId(value);
-  }; 
- */  
-  const handleProductNameChange = (value: string) => {
+  const [name, setName] = useState("");
+  const [description, setDescription] = useState("");
+  const [commission, setCommission] = useState<number>(0);
+  const [score, setScore] = useState<number>(0);
+  const [price, setPrice] = useState<number>(0);
+
+
+  const handleProductNameChange = (value: React.SetStateAction<string>) => {
     setName(value);
   };
-
-  const handleDescriptionChange = (value: string) => {
+  const handleDescriptionChange = (value: React.SetStateAction<string>) => {
     setDescription(value);
   };
 
-  const handleCommissionChange = (value: string) => {
-    const parsedValue = parseInt(value);
-    setCommission(isNaN(parsedValue) ? undefined : parsedValue);
+  const handleCommissionChange = (defaultValue: React.SetStateAction<number>) => {
+    setCommission(defaultValue);
   };
 
-  const handleScoreChange = (value: string) => {
-    const parsedValue = parseInt(value);
-    setScore(isNaN(parsedValue) ? undefined : parsedValue);
+  const handleScoreChange = (defaultValue: React.SetStateAction<number>) => {
+    setScore(defaultValue);
   };
 
-  const handlePriceChange = (value: string) => {
-    const parsedValue = parseInt(value.replace(",", "."));
-    setPrice(isNaN(parsedValue) ? undefined : parsedValue);
+  const handlePriceChange = (defaultValue: React.SetStateAction<number>) => {
+    setPrice(defaultValue);
   };
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    if ( name !==  undefined &&   description !==  undefined  && commission !== undefined && score !== undefined && price !== undefined) {
+    if (name && description && commission && score && price) {
       const ProductPayLoad: CreateProductRequest = {
-        /* id: id ,  */
-        name: name,
-        description: description,
-        commission: +commission,
-        score: +score,
-        price: +price,
+        name,
+        description,
+        commission,
+        score,
+        price,
       };
       console.log(ProductPayLoad)
       await api.createProduct(ProductPayLoad);
-      /* setId(id || undefined) */
       setName("");
       setDescription("");
-      setCommission(undefined);
-      setScore(undefined);
-      setPrice(undefined);
+      setCommission(0);
+      setScore(0);
+      setPrice(0.0);
     }
   };
 
@@ -89,31 +78,31 @@ const FormCadProduct = () => {
         type={"text"}
       />
 
-      <FormInput
+      <FormInputNumber
         label={"Comissão"}
         id={"commission"}
         placeholder={"0%"}
-        value={commission?.toString() || ""}
-        setValue={handleCommissionChange}
-        type={"text"}
+        defaultValue={commission}
+        setDefault={handleCommissionChange}
+        type={"number"}
       />
 
-      <FormInput
+      <FormInputNumber
         label={"Pontuação"}
         id={"punctuation"}
         placeholder={"Pontos"}
-        value={score?.toString() || ""}
-        setValue={handleScoreChange}
-        type={"text"}
+        defaultValue={score}
+        setDefault={handleScoreChange}
+        type={"number"}
       />
 
-      <FormInput
+      <FormInputNumber
         label={"Valor"}
         id={"price"}
         placeholder={"R$"}
-        value={price?.toString().replace(".", ",") || ""}
-        setValue={handlePriceChange}
-        type={"text"}
+        defaultValue={price}
+        setDefault={handlePriceChange}
+        type={"number"}
       />
 
       <SubmitButton title={"Enviar"} />
@@ -122,3 +111,4 @@ const FormCadProduct = () => {
 };
 
 export default FormCadProduct;
+
