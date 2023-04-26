@@ -8,10 +8,8 @@ import {
 import axios from "axios";
 
 axios.defaults.baseURL = 'https://btc-server-production-3ecc.up.railway.app/';
-<<<<<<< HEAD
 //axios.defaults.baseURL = "http://localhost:3333"
-=======
->>>>>>> feature/clientpost
+
 axios.defaults.headers.post["Content-Type"] = "application/json";
 
 axios.interceptors.request.use(
