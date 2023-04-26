@@ -102,9 +102,9 @@ export const api = {
 
   createClient: async (clientPayLoad: CreateClientRequest) => {
     try {
-      // console.log(ClientPayLoad);
+      console.log(clientPayLoad);
       const response = await axios.post('/client', clientPayLoad);
-      // console.log(response)
+      console.log(response)
       return response.data;
     } catch (error: any) {
       alert(error.message);

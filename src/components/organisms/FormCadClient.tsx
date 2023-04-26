@@ -7,11 +7,11 @@ import SubTitulo from "../atoms/SubTitle";
 import SubmitButton from "../atoms/SubmitButton";
 import { api } from "../../utils/api/api";
 
-interface createRequest {
-  name: string;
-  email: string;
-  address: string;
-}
+// interface createRequest {
+//   name: string;
+//   email: string;
+//   address: string;
+// }
 
 const FormCadClient = () => {
   const [nameValue, setNameValue] = useState("");
