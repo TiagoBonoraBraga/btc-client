@@ -23,7 +23,7 @@ export type UpdateProductRequest = {
 };
 
 export type CreateClientRequest = {
-  id: string; //external id
+  
   name: string;
   adress: string;
   cep: string;

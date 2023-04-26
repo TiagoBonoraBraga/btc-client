@@ -1,4 +1,5 @@
 import {
+  CreateClientRequest,
   CreateProductRequest,
   LoginRequest,
   UpdateProductRequest,
@@ -7,7 +8,10 @@ import {
 import axios from "axios";
 
 axios.defaults.baseURL = 'https://btc-server-production-3ecc.up.railway.app/';
+<<<<<<< HEAD
 //axios.defaults.baseURL = "http://localhost:3333"
+=======
+>>>>>>> feature/clientpost
 axios.defaults.headers.post["Content-Type"] = "application/json";
 
 axios.interceptors.request.use(
@@ -95,6 +99,19 @@ export const api = {
       return response.data;
     } catch (error) {
       alert(error);
+    }
+  },
+
+  //crud clientes
+
+  createClient: async (clientPayLoad: CreateClientRequest) => {
+    try {
+      console.log(clientPayLoad);
+      const response = await axios.post('/client', clientPayLoad);
+      console.log(response)
+      return response.data;
+    } catch (error: any) {
+      alert(error.message);
     }
   },
 };
