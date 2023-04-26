@@ -14,8 +14,12 @@ const FormCadProduct = () => {
   const [commission, setCommission] = useState<number>();
   const [score, setScore] = useState<number>();
   const [price, setPrice] = useState<number>();
-
-    
+ /* const [id, setId] = useState<number>();
+ */
+/* const handleProductIdChange = (value: number | undefined) => {
+    setId(value);
+  }; 
+ */  
   const handleProductNameChange = (value: string) => {
     setName(value);
   };
@@ -25,33 +29,34 @@ const FormCadProduct = () => {
   };
 
   const handleCommissionChange = (value: string) => {
-    const parsedValue = parseFloat(value);
+    const parsedValue = parseInt(value);
     setCommission(isNaN(parsedValue) ? undefined : parsedValue);
   };
 
   const handleScoreChange = (value: string) => {
-    const parsedValue = parseFloat(value);
+    const parsedValue = parseInt(value);
     setScore(isNaN(parsedValue) ? undefined : parsedValue);
   };
 
   const handlePriceChange = (value: string) => {
-    const parsedValue = parseFloat(value.replace(",", "."));
+    const parsedValue = parseInt(value.replace(",", "."));
     setPrice(isNaN(parsedValue) ? undefined : parsedValue);
   };
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    if (name && description && commission !== undefined && score !== undefined && price !== undefined) {
+    if ( name !==  undefined &&   description !==  undefined  && commission !== undefined && score !== undefined && price !== undefined) {
       const ProductPayLoad: CreateProductRequest = {
+        /* id: id ,  */
         name: name,
         description: description,
-        commission: commission,
-        score: score,
-        price: price,
+        commission: +commission,
+        score: +score,
+        price: +price,
       };
       console.log(ProductPayLoad)
       await api.createProduct(ProductPayLoad);
-
+      /* setId(id || undefined) */
       setName("");
       setDescription("");
       setCommission(undefined);
@@ -65,6 +70,7 @@ const FormCadProduct = () => {
       <StyleSubTitulo>
         <SubTitulo titulo={"Cadastrar Produtos"} />
       </StyleSubTitulo>
+      
       <FormInput
         label={"Produto"}
         id={"product"}
