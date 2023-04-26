@@ -6,7 +6,7 @@ import {
 
 import axios from "axios";
 
-axios.defaults.baseURL = 'https://btc-server-production-3ecc.up.railway.app';
+axios.defaults.baseURL = 'https://btc-server-production-3ecc.up.railway.app/';
 axios.defaults.headers.post["Content-Type"] = "applications/json";
 
 axios.interceptors.request.use(
@@ -45,7 +45,7 @@ export const api = {
     }
   },
 
-  getProductsById: async (id: string) => {
+  /* getProductsById: async (id: string) => {
     try {
       const response = await axios.get("/product/${id}");
       if (!response.data) {
@@ -55,15 +55,16 @@ export const api = {
     } catch (error) {
       alert(error);
     }
-  },
+  }, */
 
   createProduct: async (ProductPayLoad: CreateProductRequest) => {
     try {
       console.log(ProductPayLoad);
-      const response = await axios.post("/product", ProductPayLoad);
+      const response = await axios.post('/product', ProductPayLoad);
+      console.log(response)
       return response.data;
-    } catch (error) {
-      alert(error);
+    } catch (error: any) {
+      alert(error.message);
     }
   },
 
