@@ -7,7 +7,7 @@ export type InputProps = {
   id?: string;
   placeholder: string;
   value: string;
-  setValue: any;
+  setValue: React.Dispatch<React.SetStateAction<string>>;
   type: string;
   onKeyDown?: (e: React.KeyboardEvent<HTMLInputElement>) => void;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
