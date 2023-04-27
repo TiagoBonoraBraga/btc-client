@@ -6,9 +6,8 @@ import SubTitulo from "../atoms/SubTitle";
 import SubmitButton from "../atoms/SubmitButton";
 import { api } from "../../utils/api/api";
 import FormInputNumber from "../atoms/FomInputNumber";
-import Alert from '@mui/material/Alert';
-import Stack from '@mui/material/Stack';
-
+import Alert from "@mui/material/Alert";
+import Stack from "@mui/material/Stack";
 
 const FormCadProduct = () => {
   const [name, setName] = useState("");
@@ -18,7 +17,7 @@ const FormCadProduct = () => {
   const [price, setPrice] = useState<number>(0);
   const [showSuccess, setShowSuccess] = useState(false);
   const [showError, setShowError] = useState(false);
-  const [error, setError] = useState('');
+  const [error, setError] = useState("");
 
   const handleProductNameChange = (value: React.SetStateAction<string>) => {
     setName(value);
@@ -27,7 +26,9 @@ const FormCadProduct = () => {
     setDescription(value);
   };
 
-  const handleCommissionChange = (defaultValue: React.SetStateAction<number>) => {
+  const handleCommissionChange = (
+    defaultValue: React.SetStateAction<number>
+  ) => {
     setCommission(defaultValue);
   };
 
@@ -49,7 +50,7 @@ const FormCadProduct = () => {
         score,
         price,
       };
-      console.log(ProductPayLoad)
+      console.log(ProductPayLoad);
       try {
         const response = await api.createProduct(ProductPayLoad, setShowError);
         console.log(response);
@@ -66,13 +67,14 @@ const FormCadProduct = () => {
   };
 
   useEffect(() => {
-    if (showSuccess) {
+    if (showSuccess || showError) {
       const timer = setTimeout(() => {
         setShowSuccess(false);
+        setShowError(false);
       }, 5000);
       return () => clearTimeout(timer);
     }
-  }, [showSuccess]);
+  }, [showSuccess, showError]);
 
   return (
     <>
@@ -88,56 +90,65 @@ const FormCadProduct = () => {
         </Stack>
       )}
 
-    <form onSubmit={handleSubmit}>
-      <StyleSubTitulo>
-        <SubTitulo titulo={"Cadastrar Produtos"} />
-      </StyleSubTitulo>
-      
-      <FormInput
+      <form onSubmit={handleSubmit}>
+        <StyleSubTitulo>
+          <SubTitulo titulo={"Cadastrar Produtos"} />
+        </StyleSubTitulo>
+
+        <FormInput
           label={"Produto"}
           id={"product"}
           placeholder={"Nome do Produto"}
           value={name}
           setValue={handleProductNameChange}
-          type={"text"} required={"Campo requirido"}      />
+          type={"text"}
+          required={"Campo requirido"}
+        />
 
-      <FormInput
+        <FormInput
           label={"Descrição"}
           id={"description"}
           placeholder={"Descrição do Produto"}
           value={description}
           setValue={handleDescriptionChange}
-          type={"text"} required={"Campo requirido"}      />
+          type={"text"}
+          required={"Campo requirido"}
+        />
 
-      <FormInputNumber
+        <FormInputNumber
           label={"Comissão"}
           id={"commission"}
           placeholder={"0%"}
           defaultValue={commission}
           setDefault={handleCommissionChange}
-          type={"number"} required={"Campo requirido"}      />
+          type={"number"}
+          required={"Campo requirido"}
+        />
 
-      <FormInputNumber
+        <FormInputNumber
           label={"Pontuação"}
           id={"punctuation"}
           placeholder={"Pontos"}
           defaultValue={score}
           setDefault={handleScoreChange}
-          type={"number"} required={"Campo requirido"}      />
+          type={"number"}
+          required={"Campo requirido"}
+        />
 
-      <FormInputNumber
+        <FormInputNumber
           label={"Valor"}
           id={"price"}
           placeholder={"R$"}
           defaultValue={price}
           setDefault={handlePriceChange}
-          type={"number"} required={"Campo requirido"}      />
+          type={"number"}
+          required={"Campo requirido"}
+        />
 
-      <SubmitButton title={"Enviar"} />
-    </form>
+        <SubmitButton title={"Enviar"} />
+      </form>
     </>
   );
 };
 
 export default FormCadProduct;
-
