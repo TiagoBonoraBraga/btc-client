@@ -6,6 +6,9 @@ import SubTitulo from "../atoms/SubTitle";
 import SubmitButton from "../atoms/SubmitButton";
 import { api } from "../../utils/api/api";
 import FormInputNumber from "../atoms/FomInputNumber";
+import Alert from '@mui/material/Alert';
+import Stack from '@mui/material/Stack';
+
 
 const FormCadProduct = () => {
   const [name, setName] = useState("");
@@ -13,7 +16,9 @@ const FormCadProduct = () => {
   const [commission, setCommission] = useState<number>(0);
   const [score, setScore] = useState<number>(0);
   const [price, setPrice] = useState<number>(0);
-
+  const [showSuccess, setShowSuccess] = useState(false);
+  const [showError, setShowError] = useState(false);
+  const [error, setError] = useState('');
 
   const handleProductNameChange = (value: React.SetStateAction<string>) => {
     setName(value);
@@ -45,16 +50,36 @@ const FormCadProduct = () => {
         price,
       };
       console.log(ProductPayLoad)
-      await api.createProduct(ProductPayLoad);
-      setName("");
-      setDescription("");
-      setCommission(0);
-      setScore(0);
-      setPrice(0.0);
+      try {
+        const response = await api.createProduct(ProductPayLoad, setShowError);
+        console.log(response);
+        setShowSuccess(true);
+        setName("");
+        setDescription("");
+        setCommission(0);
+        setScore(0);
+        setPrice(0.0);
+      } catch (error) {
+        console.error(error);
+      }
     }
   };
 
+
   return (
+    <>
+      {showSuccess && (
+        <Stack>
+          <Alert severity="success">Produto cadastrado com sucesso!</Alert>
+        </Stack>
+      )}
+
+      {showError && (
+        <Stack>
+          <Alert severity="error">{error}</Alert>
+        </Stack>
+      )}
+
     <form onSubmit={handleSubmit}>
       <StyleSubTitulo>
         <SubTitulo titulo={"Cadastrar Produtos"} />
@@ -107,6 +132,7 @@ const FormCadProduct = () => {
 
       <SubmitButton title={"Enviar"} />
     </form>
+    </>
   );
 };
 
