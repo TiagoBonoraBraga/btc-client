@@ -15,36 +15,35 @@ import { api } from "../../utils/api/api";
 
 const FormCadClient = () => {
   const [nameValue, setNameValue] = useState("");
-  const [emailValue, setEmailValue] = useState(""); 
+  const [emailValue, setEmailValue] = useState("");
   const [cpfValue, setCpfValue] = useState("");
   const [phoneValue, setPhoneValue] = useState("");
   const [idFranchiseValue, setIdFranchiseValue] = useState("");
   const [error, setError] = useState<boolean>(false);
 
-
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setIdFranchiseValue("");
     setNameValue("");
-    setEmailValue("");    
+    setEmailValue("");
     setPhoneValue("");
     setCpfValue("");
 
     const clientPayLoad: CreateClientRequest = {
       idFranchise: idFranchiseValue,
-      name: nameValue, 
-      email: emailValue,     
+      name: nameValue,
+      email: emailValue,
       phone: phoneValue,
       cpf: cpfValue,
     };
     console.log(clientPayLoad);
     const clientData = await api.createClient(clientPayLoad);
-    
-     if (!clientData) {
+
+    if (!clientData) {
       setError(true);
       return;
     }
-  };
+  }
 
   return (
     <form onSubmit={handleSubmit}>
@@ -58,6 +57,7 @@ const FormCadClient = () => {
         value={idFranchiseValue}
         setValue={setIdFranchiseValue}
         type={"text"}
+        required={"Campo requirido"}
       />
       <FormInput
         label={"Nome:"}
@@ -66,6 +66,7 @@ const FormCadClient = () => {
         value={nameValue}
         setValue={setNameValue}
         type={"text"}
+        required={""}
       />
 
       <FormInput
@@ -75,7 +76,8 @@ const FormCadClient = () => {
         value={emailValue}
         setValue={setEmailValue}
         type={"text"}
-      />     
+        required={"Campo requirido"}
+      />
 
       <FormInput
         label={"Fone:"}
@@ -84,6 +86,7 @@ const FormCadClient = () => {
         value={phoneValue}
         setValue={setPhoneValue}
         type={"text"}
+        required={"Campo requirido"}
       />
       <FormInput
         label={"Cpf:"}
@@ -92,8 +95,8 @@ const FormCadClient = () => {
         value={cpfValue}
         setValue={setCpfValue}
         type={"text"}
+        required={"Campo requirido"}
       />
-
 
       <SubmitButton title={"Enviar"} />
     </form>

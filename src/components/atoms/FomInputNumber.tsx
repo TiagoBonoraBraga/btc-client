@@ -6,6 +6,7 @@ export type InputNumberProps = {
   id?: string;
   placeholder: string;
   defaultValue: number;
+  required: string;
   setDefault: React.Dispatch<React.SetStateAction<number>>;
   type?: React.HTMLInputTypeAttribute;
   onKeyDown?: (e: React.KeyboardEvent<HTMLInputElement>) => void;

@@ -9,6 +9,7 @@ export type InputProps = {
   value: string;
   setValue: (value: string) => void;
   type: string;
+  required: string
   onKeyDown?: (e: React.KeyboardEvent<HTMLInputElement>) => void;
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
