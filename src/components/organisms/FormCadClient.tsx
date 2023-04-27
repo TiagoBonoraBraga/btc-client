@@ -1,11 +1,12 @@
-import React, { FormEvent, useState } from "react";
-
+import React, { FormEvent, useEffect, useState } from "react";
 import { CreateClientRequest } from "../../utils/types/requests";
 import FormInput from "../atoms/FormInput";
 import { StyleSubTitulo } from "./OrganismsStyle/FormCadStyle";
 import SubTitulo from "../atoms/SubTitle";
 import SubmitButton from "../atoms/SubmitButton";
 import { api } from "../../utils/api/api";
+import Alert from "@mui/material/Alert";
+import Stack from "@mui/material/Stack";
 
 // interface createRequest {
 //   name: string;
@@ -20,6 +21,8 @@ const FormCadClient = () => {
   const [phoneValue, setPhoneValue] = useState("");
   const [idFranchiseValue, setIdFranchiseValue] = useState("");
   const [error, setError] = useState<boolean>(false);
+  const [showSuccess, setShowSuccess] = useState(false);
+  const [showError, setShowError] = useState(false);
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -37,69 +40,94 @@ const FormCadClient = () => {
       cpf: cpfValue,
     };
     console.log(clientPayLoad);
-    const clientData = await api.createClient(clientPayLoad);
+    const clientData = await api.createClient(clientPayLoad, setShowError);
 
     if (!clientData) {
       setError(true);
+      setShowError(true);
       return;
     }
+    setShowSuccess(true);
   }
 
+  useEffect(() => {
+    if (showSuccess) {
+      const timer = setTimeout(() => {
+        setShowSuccess(false);
+      }, 5000);
+      return () => clearTimeout(timer);
+    }
+  }, [showSuccess]);
+
   return (
-    <form onSubmit={handleSubmit}>
-      <StyleSubTitulo>
-        <SubTitulo titulo={"Cadastrar Cliente"} />
-      </StyleSubTitulo>
-      <FormInput
-        label={"IdFranchised:"}
-        id={"id"}
-        placeholder={"Digite seu id"}
-        value={idFranchiseValue}
-        setValue={setIdFranchiseValue}
-        type={"text"}
-        required={"Campo requirido"}
-      />
-      <FormInput
-        label={"Nome:"}
-        id={"name"}
-        placeholder={"Nome"}
-        value={nameValue}
-        setValue={setNameValue}
-        type={"text"}
-        required={""}
-      />
+    <>
+      {showSuccess && (
+        <Stack>
+          <Alert severity="success">Usuário cadastrado com sucesso!</Alert>
+        </Stack>
+      )}
 
-      <FormInput
-        label={"Email:"}
-        id={"email"}
-        placeholder={"Digite seu email"}
-        value={emailValue}
-        setValue={setEmailValue}
-        type={"text"}
-        required={"Campo requirido"}
-      />
+      {showError && (
+        <Stack>
+          <Alert severity="error">{error}</Alert>
+        </Stack>
+      )}
 
-      <FormInput
-        label={"Fone:"}
-        id={"fone"}
-        placeholder={"Digite seu fone"}
-        value={phoneValue}
-        setValue={setPhoneValue}
-        type={"text"}
-        required={"Campo requirido"}
-      />
-      <FormInput
-        label={"Cpf:"}
-        id={"cpf"}
-        placeholder={"Digite seu cpf"}
-        value={cpfValue}
-        setValue={setCpfValue}
-        type={"text"}
-        required={"Campo requirido"}
-      />
+      <form onSubmit={handleSubmit}>
+        <StyleSubTitulo>
+          <SubTitulo titulo={"Cadastrar Cliente"} />
+        </StyleSubTitulo>
+        <FormInput
+          label={"IdFranchised:"}
+          id={"id"}
+          placeholder={"Digite seu id"}
+          value={idFranchiseValue}
+          setValue={setIdFranchiseValue}
+          type={"text"}
+          required={"Campo requirido"}
+        />
+        <FormInput
+          label={"Nome:"}
+          id={"name"}
+          placeholder={"Nome"}
+          value={nameValue}
+          setValue={setNameValue}
+          type={"text"}
+          required={""}
+        />
 
-      <SubmitButton title={"Enviar"} />
-    </form>
+        <FormInput
+          label={"Email:"}
+          id={"email"}
+          placeholder={"Digite seu email"}
+          value={emailValue}
+          setValue={setEmailValue}
+          type={"text"}
+          required={"Campo requirido"}
+        />
+
+        <FormInput
+          label={"Fone:"}
+          id={"fone"}
+          placeholder={"Digite seu fone"}
+          value={phoneValue}
+          setValue={setPhoneValue}
+          type={"text"}
+          required={"Campo requirido"}
+        />
+        <FormInput
+          label={"Cpf:"}
+          id={"cpf"}
+          placeholder={"Digite seu cpf"}
+          value={cpfValue}
+          setValue={setCpfValue}
+          type={"text"}
+          required={"Campo requirido"}
+        />
+
+        <SubmitButton title={"Enviar"} />
+      </form>
+    </>
   );
 };
 
