@@ -7,9 +7,9 @@ export type RowsProductsProps = {
   id: string,
   name: string;
   description: string;
-  commission: string | number;
-  score: string | number;
-  price: string | number;
+  commission: number;
+  score: number;
+  price: number;
 };
 
 const RowsProducts = ({id, name, description, commission, score, price }: RowsProductsProps) => {

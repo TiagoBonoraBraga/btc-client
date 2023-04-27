@@ -14,19 +14,18 @@ import {
   ModalTitleWrapper,
 } from "../molecules/MoleculesStyle/Modal";
 import { api } from "../../utils/api/api";
-
+import FormInputNumber from "../atoms/FomInputNumber";
 
 interface ModalProps {
-  id: string,
+  id: string;
   show: boolean;
   productSelect?: RowsProductsProps;
   handleClose: () => void;
   onSave: (product: RowsProductsProps) => void;
 }
 
-
 interface updatedRequest {
-  id: string,
+  id: string;
   name: string;
   description: string;
   commission: number;
@@ -48,7 +47,7 @@ const ModalProducts: React.FC<ModalProps> = ({
     score: productSelect?.score || 0,
     price: productSelect?.price || 0,
   });
-  console.log(productSelect)
+  console.log(productSelect);
 
   const handleSubmit = async (
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>
@@ -81,7 +80,7 @@ const ModalProducts: React.FC<ModalProps> = ({
       <ModalContainer onClick={(e) => e.stopPropagation()}>
         <ModalHeader>
           <ModalTitleWrapper>
-            <SubTitulo titulo={"Editar Produto"}/>
+            <SubTitulo titulo={"Editar Produto"} />
           </ModalTitleWrapper>
           <ModalCloseButton onClick={handleClose}>×</ModalCloseButton>
         </ModalHeader>
@@ -96,7 +95,9 @@ const ModalProducts: React.FC<ModalProps> = ({
                 setFormValues({ ...formValues, name: event.target.value })
               }
               type={"text"}
-              setValue={setFormValues}
+              setValue={(value: string) =>
+                setFormValues({ ...formValues, name: value })
+              }
             />
             <FormInput
               label={"Descrição"}
@@ -110,49 +111,51 @@ const ModalProducts: React.FC<ModalProps> = ({
                 })
               }
               type={"text"}
-              setValue={setFormValues}
+              setValue={(value: string) =>
+                setFormValues({ ...formValues, name: value })
+              }
             />
 
-            <FormInput
+            <FormInputNumber
               label={"Comissão"}
-              id={"product-commission"}
-              placeholder={""}
-              value={formValues.commission?.toString() || ""}
-              onChange={(event) =>
-                setFormValues({
-                  ...formValues,
-                  commission: parseInt(event.target.value),
-                })
+              id={"commission"}
+              placeholder={"0%"}
+              defaultValue={formValues.commission}
+              setDefault={(value: React.SetStateAction<number>) =>
+                setFormValues((prevFormValues) => ({
+                  ...prevFormValues,
+                  commission: typeof value === "function" ? value(prevFormValues.commission) : value,
+                }))
               }
-              type={"text"}
-              setValue={setFormValues}
+              type={"number"}
             />
 
-            <FormInput
-              label={"Score"}
-              id={"product-Score"}
-              placeholder={""}
-              value={formValues.score.toString()} // converter para string para evitar warning
-              onChange={(event) =>
-                setFormValues({
-                  ...formValues,
-                  score: parseFloat(event.target.value),
-                })
+            <FormInputNumber
+              label={"Pontuação"}
+              id={"punctuation"}
+              placeholder={"Pontos"}
+              defaultValue={formValues.score}
+              setDefault={(value: React.SetStateAction<number>) =>
+                setFormValues((prevFormValues) => ({
+                  ...prevFormValues,
+                  score: typeof value === "function" ? value(prevFormValues.commission) : value,
+                }))
               }
-              type={"text"}
-              setValue={setFormValues}
+              type={"number"}
             />
 
-            <FormInput
+            <FormInputNumber
               label={"Valor"}
-              id={"product-price"}
-              placeholder={""}
-              value={formValues.price.toString()}
-              onChange={(event) =>
-                setFormValues({ ...formValues, price: parseFloat(event.target.value) })
+              id={"price"}
+              placeholder={"R$"}
+              defaultValue={formValues.price}
+              setDefault={(value: React.SetStateAction<number>) =>
+                setFormValues((prevFormValues) => ({
+                  ...prevFormValues,
+                  price: typeof value === "function" ? value(prevFormValues.commission) : value,
+                }))
               }
-              type={"text"}
-              setValue={setFormValues}
+              type={"number"}
             />
           </form>
         </ModalContentWrapper>
