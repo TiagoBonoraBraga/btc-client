@@ -1,6 +1,7 @@
+import React, { useEffect, useState } from "react";
+
 import { BoxButton } from "./AtomsStyles/Rows";
 import { FiEdit } from "react-icons/fi";
-import React, { useEffect, useState } from "react";
 import ModalProducts from "../../components/organisms/ModalProducts";
 
 export type RowsProductsProps = {
