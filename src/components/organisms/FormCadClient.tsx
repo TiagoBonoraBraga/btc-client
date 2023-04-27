@@ -39,6 +39,14 @@ const FormCadClient = () => {
       phone: phoneValue,
       cpf: cpfValue,
     };
+    
+    if (clientPayLoad.cpf && clientPayLoad.phone ) {
+      if (clientPayLoad.cpf.length !== 11 || clientPayLoad.phone.length !== 11) {
+        setShowError(true);
+        return;
+      }
+    }
+
     console.log(clientPayLoad);
     const clientData = await api.createClient(clientPayLoad, setShowError);
 
@@ -51,13 +59,14 @@ const FormCadClient = () => {
   }
 
   useEffect(() => {
-    if (showSuccess) {
+    if (showSuccess || showError) {
       const timer = setTimeout(() => {
         setShowSuccess(false);
+        setShowError(false);
       }, 5000);
       return () => clearTimeout(timer);
     }
-  }, [showSuccess]);
+  }, [showSuccess, showError]);
 
   return (
     <>
@@ -69,7 +78,7 @@ const FormCadClient = () => {
 
       {showError && (
         <Stack>
-          <Alert severity="error">{error}</Alert>
+          <Alert severity="error">CPF ou Telefone inválidos!</Alert>
         </Stack>
       )}
 
