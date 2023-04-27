@@ -18,21 +18,24 @@ const FormCadClient = () => {
   const [emailValue, setEmailValue] = useState(""); 
   const [cpfValue, setCpfValue] = useState("");
   const [phoneValue, setPhoneValue] = useState("");
+  const [idFranchiseValue, setIdFranchiseValue] = useState("");
   const [error, setError] = useState<boolean>(false);
 
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    setIdFranchiseValue("");
     setNameValue("");
     setEmailValue("");    
-    setCpfValue("");
     setPhoneValue("");
+    setCpfValue("");
 
     const clientPayLoad: CreateClientRequest = {
+      idFranchise: idFranchiseValue,
       name: nameValue, 
       email: emailValue,     
-      cpf: cpfValue,
       phone: phoneValue,
+      cpf: cpfValue,
     };
     console.log(clientPayLoad);
     const clientData = await api.createClient(clientPayLoad);
@@ -48,6 +51,14 @@ const FormCadClient = () => {
       <StyleSubTitulo>
         <SubTitulo titulo={"Cadastrar Cliente"} />
       </StyleSubTitulo>
+      <FormInput
+        label={"IdFranchised:"}
+        id={"id"}
+        placeholder={"Digite seu id"}
+        value={idFranchiseValue}
+        setValue={setIdFranchiseValue}
+        type={"text"}
+      />
       <FormInput
         label={"Nome:"}
         id={"name"}
@@ -67,20 +78,19 @@ const FormCadClient = () => {
       />     
 
       <FormInput
-        label={"Cpf:"}
-        id={"cpf"}
-        placeholder={"Digite seu cpf"}
-        value={cpfValue}
-        setValue={setCpfValue}
-        type={"text"}
-      />
-
-      <FormInput
         label={"Fone:"}
         id={"fone"}
         placeholder={"Digite seu fone"}
         value={phoneValue}
         setValue={setPhoneValue}
+        type={"text"}
+      />
+      <FormInput
+        label={"Cpf:"}
+        id={"cpf"}
+        placeholder={"Digite seu cpf"}
+        value={cpfValue}
+        setValue={setCpfValue}
         type={"text"}
       />
 

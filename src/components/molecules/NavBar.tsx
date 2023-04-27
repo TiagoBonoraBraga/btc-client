@@ -1,6 +1,3 @@
-import React, { useState } from "react";
-import menuItens from "../atoms/menuItensAdm.json";
-import { useLocation } from "react-router-dom";
 import {
   HeaderStyled,
   LinkStyle,
@@ -9,8 +6,12 @@ import {
   MenuIconStyled,
   MenuStyled,
 } from "./MoleculesStyle/NavBar";
+import React, { useState } from "react";
+
+import logo from "../../assets/logohyperdashmenor.png";
+import menuItens from "../atoms/menuItensAdm.json";
 import menublue from "../../assets/menublue.png";
-import logo from "../../assets/logo.png";
+import { useLocation } from "react-router-dom";
 
 const NavBar = () => {
   const [show, setShow] = useState<boolean>(false);
