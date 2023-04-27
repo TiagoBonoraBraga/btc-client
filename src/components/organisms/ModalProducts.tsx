@@ -91,72 +91,53 @@ const ModalProducts: React.FC<ModalProps> = ({
               id={"product-name"}
               placeholder={""}
               value={formValues.name}
-              onChange={(event) =>
-                setFormValues({ ...formValues, name: event.target.value })
-              }
+              onChange={(event) => setFormValues({ ...formValues, name: event.target.value })}
               type={"text"}
-              setValue={(value: string) =>
-                setFormValues({ ...formValues, name: value })
-              }
-            />
+              setValue={(value: string) => setFormValues({ ...formValues, name: value })} required={""}            />
             <FormInput
               label={"Descrição"}
               id={"product-description"}
               placeholder={""}
               value={formValues.description}
-              onChange={(event) =>
-                setFormValues({
-                  ...formValues,
-                  description: event.target.value,
-                })
-              }
+              onChange={(event) => setFormValues({
+                ...formValues,
+                description: event.target.value,
+              })}
               type={"text"}
-              setValue={(value: string) =>
-                setFormValues({ ...formValues, name: value })
-              }
-            />
+              setValue={(value: string) => setFormValues({ ...formValues, name: value })} required={""}            />
 
             <FormInputNumber
               label={"Comissão"}
               id={"commission"}
               placeholder={"0%"}
               defaultValue={formValues.commission}
-              setDefault={(value: React.SetStateAction<number>) =>
-                setFormValues((prevFormValues) => ({
-                  ...prevFormValues,
-                  commission: typeof value === "function" ? value(prevFormValues.commission) : value,
-                }))
-              }
-              type={"number"}
-            />
+              setDefault={(value: React.SetStateAction<number>) => setFormValues((prevFormValues) => ({
+                ...prevFormValues,
+                commission: typeof value === "function" ? value(prevFormValues.commission) : value,
+              }))}
+              type={"number"} required={""}            />
 
             <FormInputNumber
               label={"Pontuação"}
               id={"punctuation"}
               placeholder={"Pontos"}
               defaultValue={formValues.score}
-              setDefault={(value: React.SetStateAction<number>) =>
-                setFormValues((prevFormValues) => ({
-                  ...prevFormValues,
-                  score: typeof value === "function" ? value(prevFormValues.commission) : value,
-                }))
-              }
-              type={"number"}
-            />
+              setDefault={(value: React.SetStateAction<number>) => setFormValues((prevFormValues) => ({
+                ...prevFormValues,
+                score: typeof value === "function" ? value(prevFormValues.commission) : value,
+              }))}
+              type={"number"} required={""}            />
 
             <FormInputNumber
               label={"Valor"}
               id={"price"}
               placeholder={"R$"}
               defaultValue={formValues.price}
-              setDefault={(value: React.SetStateAction<number>) =>
-                setFormValues((prevFormValues) => ({
-                  ...prevFormValues,
-                  price: typeof value === "function" ? value(prevFormValues.commission) : value,
-                }))
-              }
-              type={"number"}
-            />
+              setDefault={(value: React.SetStateAction<number>) => setFormValues((prevFormValues) => ({
+                ...prevFormValues,
+                price: typeof value === "function" ? value(prevFormValues.commission) : value,
+              }))}
+              type={"number"} required={""}            />
           </form>
         </ModalContentWrapper>
         <ButtonsWrapper>
