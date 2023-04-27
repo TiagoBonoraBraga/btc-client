@@ -58,14 +58,16 @@ export const api = {
     }
   }, */
 
-  createProduct: async (ProductPayLoad: CreateProductRequest) => {
+  createProduct: async (ProductPayLoad: CreateProductRequest, setShowError: React.Dispatch<React.SetStateAction<boolean>>) => {
     try {
-      console.log(ProductPayLoad);
       const response = await axios.post('/product', ProductPayLoad);
-      console.log(response)
+      console.log(response);
       return response.data;
-    } catch (error: any) {
-      alert(error.message);
+    } catch (error) {
+      console.error(error);
+      const message = error;
+      setShowError(true);
+      setError(message);
     }
   },
 
@@ -108,14 +110,21 @@ export const api = {
       alert(error);
     }
   },
-  createClient: async (clientPayLoad: CreateClientRequest) => {
+  createClient: async (clientPayLoad: CreateClientRequest, setShowError: React.Dispatch<React.SetStateAction<boolean>>) => {
     try {
       console.log(clientPayLoad);
       const response = await axios.post('/client', clientPayLoad);
       console.log(response)
       return response.data;
     } catch (error: any) {
+      const message = error;
+      setShowError(true);
+      setError(message);
       alert(error.message);
     }
   },
 };
+function setError(message: any) {
+  throw new Error("Function not implemented.");
+}
+
