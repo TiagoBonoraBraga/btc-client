@@ -102,13 +102,16 @@ export const api = {
 
   //crud clientes
 
-  createClient: async (clientPayLoad: CreateClientRequest) => {
+  createClient: async (clientPayLoad: CreateClientRequest, setShowError: React.Dispatch<React.SetStateAction<boolean>>) => {
     try {
       console.log(clientPayLoad);
       const response = await axios.post('/client', clientPayLoad);
       console.log(response)
       return response.data;
     } catch (error: any) {
+      const message = error;
+      setShowError(true);
+      setError(message);
       alert(error.message);
     }
   },
