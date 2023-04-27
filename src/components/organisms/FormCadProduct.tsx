@@ -1,4 +1,4 @@
-import React, { FormEvent, useState } from "react";
+import React, { FormEvent, useEffect, useState } from "react";
 import { CreateProductRequest } from "../../utils/types/requests";
 import FormInput from "../atoms/FormInput";
 import { StyleSubTitulo } from "./OrganismsStyle/FormCadStyle";
@@ -65,7 +65,14 @@ const FormCadProduct = () => {
     }
   };
 
-  
+  useEffect(() => {
+    if (showSuccess) {
+      const timer = setTimeout(() => {
+        setShowSuccess(false);
+      }, 5000);
+      return () => clearTimeout(timer);
+    }
+  }, [showSuccess]);
 
   return (
     <>
