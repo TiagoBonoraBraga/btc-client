@@ -65,6 +65,7 @@ const FormCadProduct = () => {
     }
   };
 
+  
 
   return (
     <>
@@ -86,49 +87,44 @@ const FormCadProduct = () => {
       </StyleSubTitulo>
       
       <FormInput
-        label={"Produto"}
-        id={"product"}
-        placeholder={"Nome do Produto"}
-        value={name}
-        setValue={handleProductNameChange}
-        type={"text"}
-      />
+          label={"Produto"}
+          id={"product"}
+          placeholder={"Nome do Produto"}
+          value={name}
+          setValue={handleProductNameChange}
+          type={"text"} required={"Campo requirido"}      />
 
       <FormInput
-        label={"Descrição"}
-        id={"description"}
-        placeholder={"Descrição do Produto"}
-        value={description}
-        setValue={handleDescriptionChange}
-        type={"text"}
-      />
+          label={"Descrição"}
+          id={"description"}
+          placeholder={"Descrição do Produto"}
+          value={description}
+          setValue={handleDescriptionChange}
+          type={"text"} required={"Campo requirido"}      />
 
       <FormInputNumber
-        label={"Comissão"}
-        id={"commission"}
-        placeholder={"0%"}
-        defaultValue={commission}
-        setDefault={handleCommissionChange}
-        type={"number"}
-      />
+          label={"Comissão"}
+          id={"commission"}
+          placeholder={"0%"}
+          defaultValue={commission}
+          setDefault={handleCommissionChange}
+          type={"number"} required={"Campo requirido"}      />
 
       <FormInputNumber
-        label={"Pontuação"}
-        id={"punctuation"}
-        placeholder={"Pontos"}
-        defaultValue={score}
-        setDefault={handleScoreChange}
-        type={"number"}
-      />
+          label={"Pontuação"}
+          id={"punctuation"}
+          placeholder={"Pontos"}
+          defaultValue={score}
+          setDefault={handleScoreChange}
+          type={"number"} required={"Campo requirido"}      />
 
       <FormInputNumber
-        label={"Valor"}
-        id={"price"}
-        placeholder={"R$"}
-        defaultValue={price}
-        setDefault={handlePriceChange}
-        type={"number"}
-      />
+          label={"Valor"}
+          id={"price"}
+          placeholder={"R$"}
+          defaultValue={price}
+          setDefault={handlePriceChange}
+          type={"number"} required={"Campo requirido"}      />
 
       <SubmitButton title={"Enviar"} />
     </form>
