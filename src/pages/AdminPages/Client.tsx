@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-
+import CircularProgress from '@mui/material/CircularProgress';
 import { BoxTable } from '../StylePages/Franchised'
 import Header from '../../components/organisms/Header'
 import { RowsClientProps } from '../../components/atoms/RowsClient'
@@ -16,11 +16,12 @@ const Client = () => {
 
   const [rows, setRows] = useState<RowsClientProps[]>([]);
    const [selectedClient, setSelectedClient] = useState<RowsClientProps | undefined>(undefined);
-
-    useEffect(() => {
+   const [isLoading, setIsLoading] = useState(true);
+   useEffect(() => {
     async function fetchData() {
       const clients = await api.getClients();
       setRows(clients);
+      setIsLoading(false);
     }
     fetchData();
   }, []);
@@ -31,13 +32,19 @@ const Client = () => {
   
   return (
     <>
-    <Header/>
-    <BoxTable>
-       <SubTitle titulo="Clientes"/>
-       <TableClients data={rows} handleSelectClient={handleSelectClient}/>
-    </BoxTable>    
+      <Header />
+      {isLoading ? (
+        <BoxTable style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+          <CircularProgress />
+        </BoxTable>
+      ) : (
+        <BoxTable>
+          <SubTitle titulo="Clientes" />
+          <TableClients data={rows} handleSelectClient={handleSelectClient} />
+        </BoxTable>
+      )}
     </>
-  )
-}
+  );
+};
 
-export default Client
+export default Client;
