@@ -1,6 +1,5 @@
 import { LeftDiv, RightDiv, Section, StyleSubTitulo } from "../StylePages/Home";
-import React, { useEffect, useState } from "react";
-
+import { useEffect, useState } from "react";
 import Cards from "../../components/organisms/Cards";
 import Form from "../../components/molecules/Form";
 import FormCadClient from "../../components/organisms/FormCadClient";
@@ -24,13 +23,13 @@ const Admin = () => {
     FormCadClient: false,
     FormCadProduct: false,
   };
-  
-  const [ info, setInfo ] = useState<initialStateProps>(initialState);
-  const [ logo, setLogo ] = useState<boolean>(false)
-  const [ showModal, setShowModal ] = useState<boolean>(true)
 
-  useEffect(() => { 
-    setLogo(true)
+  const [info, setInfo] = useState<initialStateProps>(initialState);
+  const [logo, setLogo] = useState<boolean>(false);
+  const [showModal, setShowModal] = useState<boolean>(true);
+
+  useEffect(() => {
+    setLogo(true);
     setInfo({ ...initialState, FormCadFranchisee: false });
   }, []);
   /* const handleClose = () => {
@@ -50,10 +49,9 @@ const Admin = () => {
     setInfo({ ...initialState, FormCadProduct: true });
   };
 
-  
   return (
     <>
-    {/* <Modal show={true} handleClose={function (): void {
+      {/* <Modal show={true} handleClose={function (): void {
         throw new Error("Function not implemented.");
       } }></Modal> */}
       <Header />
@@ -82,15 +80,10 @@ const Admin = () => {
           />
         </LeftDiv>
         <RightDiv>
-        
-   
-      {info.FormCadFranchisee && <FormCadFranchisee />}
-      {info.FormCadClient && <FormCadClient />}
-      {info.FormCadProduct && <FormCadProduct />}
-      {logo && showModal && <LogoAdmin />}
-
-    
-      
+          {info.FormCadFranchisee && <FormCadFranchisee />}
+          {info.FormCadClient && <FormCadClient />}
+          {info.FormCadProduct && <FormCadProduct />}
+          {logo && showModal && <LogoAdmin />}
         </RightDiv>
       </Section>
     </>
