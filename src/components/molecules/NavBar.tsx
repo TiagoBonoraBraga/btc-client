@@ -16,7 +16,7 @@ import { useLocation } from "react-router-dom";
 
 const NavBar = () => {
   const [show, setShow] = useState<boolean>(false);
-  const [isAdmin, setIsAdmin] = useState<boolean>(true); // Inicializa com true, mas pode ser alterado
+  const [isAdmin, setIsAdmin] = useState<boolean>(false); // Muda cfe. login
 
   const toggleMenu = () => {
     setShow(!show);
