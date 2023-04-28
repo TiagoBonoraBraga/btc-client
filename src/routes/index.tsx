@@ -8,6 +8,7 @@ import Home from '../pages/Home';
 import Login from '../pages/Login';
 import Products from '../pages/AdminPages/Products';
 import Support from '../pages/Support';
+import User from '../pages/UserPages/User';
 
 const App = () => {
     return (
@@ -25,11 +26,14 @@ const Routes = createBrowserRouter([
         children: [
             { path: '/', element: <Home /> },
             { path: '/login', element: <Login /> },
-            { path: '/client', element: <Client /> },
-            { path: '/product', element: <Products /> },
-            { path: '/admin', element: <Admin /> },
-            { path: '/franchised', element: <Franchised /> },
-             { path: '/support', element: <Support /> },
+            { path: '/admin/', element: <Admin /> },
+            { path: '/admin/client', element: <Client /> },
+            { path: '/admin/product', element: <Products /> },
+            { path: '/admin/franchised', element: <Franchised /> },
+            { path: '/admin/support', element: <Support /> },
+            { path: '/user', element: <User /> },
+            { path: '/user/support', element: <Support /> },
+            
            
 
         ],
