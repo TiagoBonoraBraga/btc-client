@@ -2,25 +2,25 @@
     {
       "id": 1,
       "text": "Receitas",
-      "url": "/"
+      "url": "/user"
     },
     {
       "id": 2,
       "text": "Clientes",
-      "url": "/client"
+      "url": "/user/client"
     },
     {
       "id": 3,
       "text": "Produto",
-      "url": "/product"
+      "url": "/user/product"
     },
     {
-      "id": 3,
+      "id": 4,
       "text": "Suporte",
-      "url": "/support"
+      "url": "/user/support"
     },
     {
-      "id": 3,
+      "id": 5,
       "text": "Sair",
       "url": "/login"
     }
