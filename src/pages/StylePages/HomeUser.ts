@@ -12,7 +12,6 @@ export const Header = styled.header`
 `;
 
 export const Content = styled.div`
-  margin-top: 3rem;
   flex-direction: row;
   justify-content: center;
   align-items: center;
@@ -34,6 +33,7 @@ export const Section = styled.section`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  margin-top: 3rem;
 
   @media screen and (max-width: 768px) {
     display: grid;
@@ -45,7 +45,8 @@ export const Section = styled.section`
 `;
 
 export const StyleSubTitulo = styled.div`
-  margin-top: 80px;
+  margin-top: 5rem;
+  margin-bottom: 5rem;
   text-align: center;
 `;
 
@@ -94,7 +95,7 @@ export const FooterDiv = styled.div`
   display: flex;
   justify-content: center;
   height: 300px;
-  margin-top: 3rem;
+  margin-top: 10rem;
   border: 1px solid #2d9bf0;
   border-radius: 50px;
   width: 100%;
