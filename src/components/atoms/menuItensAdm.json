@@ -7,22 +7,22 @@
   {
     "id": 2,
     "text": "Clientes",
-    "url": "/client"
+    "url": "/admin/client"
   },
   {
     "id": 3,
     "text": "Franqueados",
-    "url": "/franchised"
+    "url": "/admin/franchised"
   },
   {
     "id": 4,
     "text": "Produto",
-    "url": "/product"
+    "url": "/admin/product"
   },
   {
     "id": 5,
     "text": "Suporte",
-    "url": "/support"
+    "url": "/admin/support"
   },
   {
     "id": 6,

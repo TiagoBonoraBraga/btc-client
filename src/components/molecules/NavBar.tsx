@@ -9,12 +9,14 @@ import {
 import React, { useState } from "react";
 
 import logo from "../../assets/logohyperdashmenor.png";
-import menuItens from "../atoms/menuItensAdm.json";
+import menuItensAdmin from "../atoms/menuItensAdm.json";
+import menuItensUser from "../atoms/menuItensUser.json";
 import menublue from "../../assets/menublue.png";
 import { useLocation } from "react-router-dom";
 
 const NavBar = () => {
   const [show, setShow] = useState<boolean>(false);
+  const [isAdmin, setIsAdmin] = useState<boolean>(true); // Muda cfe. login
 
   const toggleMenu = () => {
     setShow(!show);
@@ -34,20 +36,33 @@ const NavBar = () => {
       </MenuContentStyled>
 
       <MenuStyled show={show}>
-        {menuItens.map((item) => (
-          <li key={item.id}>
-            <LinkStyle
-              to={item.url}
-              show={show}
-              className={location.pathname === item.url ? "active" : ""}
-            >
-              {item.text}
-            </LinkStyle>
-          </li>
-        ))}
+        {isAdmin
+          ? menuItensAdmin.map((item) => (
+              <li key={item.id}>
+                <LinkStyle
+                  to={item.url}
+                  show={show}
+                  className={location.pathname === item.url ? "active" : ""}
+                >
+                  {item.text}
+                </LinkStyle>
+              </li>
+            ))
+          : menuItensUser.map((item) => (
+              <li key={item.id}>
+                <LinkStyle
+                  to={item.url}
+                  show={show}
+                  className={location.pathname === item.url ? "active" : ""}
+                >
+                  {item.text}
+                </LinkStyle>
+              </li>
+            ))}
       </MenuStyled>
     </HeaderStyled>
   );
 };
 
 export default NavBar;
+

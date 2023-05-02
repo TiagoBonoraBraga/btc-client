@@ -9,6 +9,7 @@ import {
   StyleButton,
   SupportContainer,
 } from "./StylePages/Support";
+import Footer from "../components/atoms/Footer";
 
 interface SupportRequest {
   name: string;
@@ -50,14 +51,16 @@ const Support = () => {
             placeholder={""}
             value={name}
             setValue={setName}
-            type={""}
+            type={"text"}
+            required={""}
           />
           <FormInput
             label={"Assunto"}
             placeholder={""}
             value={subject}
             setValue={setSubject}
-            type={""}
+            type={"text"}
+            required={""}
           />
           <TextInput
             onChange={handleNameChange}
