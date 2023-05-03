@@ -26,7 +26,7 @@ axios.interceptors.request.use(
 export const api = {
   login: async ({ email, password }: LoginRequest) => {
     try {
-      const response = await axios.post("rota", { email, password });
+      const response = await axios.post("/user", { email, password });
       // console.log(response.data.token);
       localStorage.setItem("token", response.data.token);
       return response.data;

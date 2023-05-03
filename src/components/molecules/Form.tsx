@@ -5,21 +5,31 @@ import React, { FormEvent, useState } from 'react'
 import { LoginRequest } from '../../utils/types/requests';
 import Logo from '../atoms/Logo';
 import SubmitButton from '../atoms/SubmitButton.js';
+import { api } from '../../utils/api/api';
+import { useNavigate } from 'react-router-dom';
 
 const Form = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState<boolean>(false);
 
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  const navigate = useNavigate();
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    
+
     const loginPayload: LoginRequest = {
       email: email,
       password: password,
     };
-    console.log(loginPayload)
-    setEmail("");
-    setPassword("");
+
+    const userData = await api.login(loginPayload);
+    // localStorage.setItem("userId", userData.user.id);
+
+    if (!userData) {
+      setError(true);
+      return;
+    }
+    navigate("/admin");
   }
 
   function handleKeyDown(e: React.KeyboardEvent<HTMLInputElement>) {
@@ -30,35 +40,38 @@ const Form = () => {
 
   return (
     <LoginForm>
-        <BoxForm onSubmit={handleSubmit}>
-            <Logo/>
+      <BoxForm onSubmit={handleSubmit}>
+        <Logo />
 
-            <FormInput 
-              label='Email:' 
-              id='email' 
-              type="text" 
-              value={email}
-              setValue={setEmail} 
-              placeholder='Digite seu nome:'
-              onKeyDown={handleKeyDown}
-            />
+        <FormInput
+          label='Email:'
+          id='email'
+          type="text"
+          value={email}
+          setValue={setEmail}
+          placeholder='Digite seu nome:'
+          onKeyDown={handleKeyDown} required={''} />
 
-            <FormInput 
-             label='Senha:' 
-              id='senha' 
-              type="password" 
-              value={password}
-              setValue={setPassword} 
-              placeholder='Digite sua senha:'
-              onKeyDown={handleKeyDown}
-            />
+        <FormInput
+          label='Senha:'
+          id='senha'
+          type="password"
+          value={password}
+          setValue={setPassword}
+          placeholder='Digite sua senha:'
+          onKeyDown={handleKeyDown} required={''} />
 
-            <SubmitButton title='Login'/>
-        </BoxForm>
+        <SubmitButton title='Login' />
+      </BoxForm>
     </LoginForm>
   )
-}
+};
+
 
 export default Form
 
+
+// function handleSubmit(arg0: React.FormEvent<HTMLFormElement>) {
+//   throw new Error('Function not implemented.');
+// }
 
