@@ -26,9 +26,9 @@ const TableProducts = ({ data }: TableProductsProps) => {
             key={index}
             name={row.name}
             description={row.description}
-            commission={`${row.commission}`}
-            score={`${row.score}`}
-            price={`${row.price}`}
+            commission={row.commission}
+            score={row.score}
+            price={row.price}
             id={row.id}
           />
         ))}
