@@ -5,6 +5,6 @@ export const SubTitleForm = styled.h2`
     font-size: 35px;
     font-weight: 500;
     margin-top: 1rem;
-    margin-bottom: 3rem;
+    margin-bottom: .5rem;
    
 `;

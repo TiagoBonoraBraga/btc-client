@@ -5,7 +5,7 @@ export const BoxTable = styled.table`
   color: #2D9BF0;
   width: 80%;
   padding:10px;
-  margin-top: 100px;
+  margin-top: 3px;
 
  Thead{
     background-color: #2D9BF0;
