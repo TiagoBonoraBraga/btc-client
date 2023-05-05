@@ -60,6 +60,11 @@ const FormCadProduct = () => {
         setCommission(0);
         setScore(0);
         setPrice(0.0);
+        window.location.reload();
+        window.scrollTo({
+          top: document.documentElement.scrollHeight,
+          behavior: 'smooth'
+        });
       } catch (error) {
         console.error(error);
       }

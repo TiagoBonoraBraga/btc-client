@@ -39,7 +39,7 @@ const Client = () => {
         </BoxTable>
       ) : (
         <BoxTable>
-          <SubTitle titulo="Clientes" />
+          <SubTitle titulo="Franqueados" />
           <TableClients data={rows} handleSelectClient={handleSelectClient} />
         </BoxTable>
       )}

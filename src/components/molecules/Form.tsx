@@ -34,24 +34,22 @@ const Form = () => {
             <Logo/>
 
             <FormInput 
-              label='Email:' 
-              id='email' 
-              type="text" 
-              value={email}
-              setValue={setEmail} 
-              placeholder='Digite seu nome:'
-              onKeyDown={handleKeyDown}
-            />
+          label='Email:'
+          id='email'
+          type="text"
+          value={email}
+          setValue={setEmail}
+          placeholder='Digite seu nome:'
+          onKeyDown={handleKeyDown} required={''}            />
 
             <FormInput 
-             label='Senha:' 
-              id='senha' 
-              type="password" 
-              value={password}
-              setValue={setPassword} 
-              placeholder='Digite sua senha:'
-              onKeyDown={handleKeyDown}
-            />
+          label='Senha:'
+          id='senha'
+          type="password"
+          value={password}
+          setValue={setPassword}
+          placeholder='Digite sua senha:'
+          onKeyDown={handleKeyDown} required={''}            />
 
             <SubmitButton title='Login'/>
         </BoxForm>

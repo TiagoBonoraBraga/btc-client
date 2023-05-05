@@ -13,7 +13,15 @@ import {
   Title,
   Icon,
   Flex,
+  Divider,
+  Metric,
+  Text,
 } from "@tremor/react";
+import Header from "../../organisms/Header";
+import NavBar from "../NavBar";
+import { Content } from "../../../pages/StylePages/HomeUser";
+import CommissionsViews from "../../organisms/userCommission/Commissions";
+import FormCadProduct from "../../organisms/FormCadProduct";
 
 type Product = {
   id: string;
@@ -73,39 +81,44 @@ const TableSales = () => {
   }, []);
 
   return (
-    <Card>
-      <Flex>
-        <Title> Relatório de Vendas </Title>
-        <Icon
-          icon={InformationCircleIcon}
-          variant="simple"
-          tooltip="Vendas por período"
-        />
-      </Flex>
-      <Table className="mt-6">
-        <TableHead>
-          <TableRow>
-            <TableHeaderCell>Data</TableHeaderCell>
-            <TableHeaderCell>Venda</TableHeaderCell>
-            <TableHeaderCell>Score</TableHeaderCell>
-            <TableHeaderCell>Comissão</TableHeaderCell>
-            <TableHeaderCell>Valor R$</TableHeaderCell>
-          </TableRow>
-        </TableHead>
+    <>
+      
+      <Content>
+        <Card>
+          <Flex>
+            <Title> Relatório de Vendas </Title>
+            <Icon
+              icon={InformationCircleIcon}
+              variant="simple"
+              tooltip="Vendas por período"
+            />
+          </Flex>
+          <Table className="mt-6">
+            <TableHead>
+              <TableRow>
+                <TableHeaderCell>Data</TableHeaderCell>
+                <TableHeaderCell>Venda</TableHeaderCell>
+                <TableHeaderCell>Score</TableHeaderCell>
+                <TableHeaderCell>Comissão</TableHeaderCell>
+                <TableHeaderCell>Valor R$</TableHeaderCell>
+              </TableRow>
+            </TableHead>
 
-        <TableBody>
-          {products.map((product) => (
-            <TableRow key={product.id}>
-              <TableCell>{product.createdAt}</TableCell>
-              <TableCell>{product.name}</TableCell>
-              <TableCell>{product.score}</TableCell>
-              <TableCell>{product.commission}</TableCell>
-              <TableCell>{product.price}</TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </Card>
+            <TableBody>
+              {products.map((product) => (
+                <TableRow key={product.id}>
+                  <TableCell>{product.createdAt}</TableCell>
+                  <TableCell>{product.name}</TableCell>
+                  <TableCell>{product.score}</TableCell>
+                  <TableCell>{product.commission}</TableCell>
+                  <TableCell>{product.price}</TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </Card>
+      </Content>
+    </>
   );
 };
 
