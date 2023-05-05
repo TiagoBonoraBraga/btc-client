@@ -6,26 +6,21 @@
   },
   {
     "id": 2,
-    "text": "Clientes",
-    "url": "/admin/client"
-  },
-  {
-    "id": 3,
     "text": "Franqueados",
     "url": "/admin/franchised"
   },
   {
-    "id": 4,
+    "id": 3,
     "text": "Produto",
     "url": "/admin/product"
   },
   {
-    "id": 5,
+    "id": 4,
     "text": "Suporte",
     "url": "/admin/support"
   },
   {
-    "id": 6,
+    "id": 5,
     "text": "Sair",
     "url": "/login"
   }
