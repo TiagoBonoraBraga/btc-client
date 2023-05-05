@@ -12,12 +12,13 @@ export const Header = styled.header`
 `;
 
 export const Content = styled.div`
-  flex-direction: row;
+display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   margin-bottom: 0.4rem;
   padding: 1rem;
-  margin: 5rem;
+  margin-top: 5rem;
 
   @media screen and (max-width: 768px) {
     display: grid;

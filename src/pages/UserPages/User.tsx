@@ -1,59 +1,27 @@
 import React from "react";
 import Header from "../../components/organisms/Header";
-
 import SubTitle from "../../components/atoms/SubTitle";
-import {
-  Content,
-  FooterDiv,
-  LeftDiv,
-  LeftDivFooter,
-  RightDiv,
-  RightDivFooter,
-  Section,
-  StyleSubTitulo,
-} from "../StylePages/HomeUser";
+import { Content } from "../StylePages/HomeUser";
 import Footer from "../../components/atoms/Footer";
-
-/* interface UserProps {
-  name: string;
-  age: number;
-  email?: string; // propriedade opcional
-} */
+import { Card, Col, Divider, Grid } from "@tremor/react";
+import ChartView from "../../components/organisms/PerformHistory";
+import TableSales from "../../components/molecules/sales/TableSales";
 
 const User = () => {
   return (
     <>
       <Header />
       <Content>
-        <StyleSubTitulo>
-          <SubTitle titulo={"Resumo"} />
-        </StyleSubTitulo>
-        <Section>
-          <LeftDiv>
-            <SubTitle titulo={"Receitas"} />
-            <h2>Dashboard</h2>
-            <p>
-              Dashboard com a movimentação de Receitas.
-            </p>
-          </LeftDiv>
-          <RightDiv>
-            <SubTitle titulo={"Comissão"} />
-            <h2>Dashboard</h2>
-            <p>
-              Dashboard com a movimentação de Comissões.
-            </p>
-          </RightDiv>
-        </Section>
-        <FooterDiv>
-          <LeftDivFooter>
-            <h2>Vendas</h2>
-            <p>Produtos vendidos.</p>
-          </LeftDivFooter>
-          <RightDivFooter>
-            <h2>Clientes</h2>
-            <p>Clientes de sua carteira.</p>
-          </RightDivFooter>
-        </FooterDiv>
+        <SubTitle titulo={"Receitas"} />
+        <Grid numCols={2} numColsSm={1} numColsLg={2} className="gap-3">
+          <Col numColSpan={1} numColSpanLg={2}></Col>
+          <Col>
+            <ChartView />
+          </Col>
+          <Col>
+            <TableSales />
+          </Col>
+        </Grid>
       </Content>
       <Footer />
     </>
