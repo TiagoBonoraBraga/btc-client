@@ -11,18 +11,19 @@ const User = () => {
   return (
     <>
       <Header />
-      <Content>
-        <SubTitle titulo={"Receitas"} />
-        <Grid numCols={2} numColsSm={1} numColsLg={2} className="gap-3">
-          <Col numColSpan={1} numColSpanLg={2}></Col>
-          <Col>
-            <ChartView />
-          </Col>
-          <Col>
-            <TableSales />
-          </Col>
-        </Grid>
-      </Content>
+      <Content> 
+      <SubTitle titulo={"Receitas"} />
+      <Divider /> 
+      <Grid numColsMd={2} className="mt-6 gap-6">
+        <Card decoration="top" decorationColor="indigo">
+          <ChartView />
+        </Card>
+        <Card>
+          <TableSales />
+        </Card>
+      </Grid>
+   </Content>
+ 
       <Footer />
     </>
   );

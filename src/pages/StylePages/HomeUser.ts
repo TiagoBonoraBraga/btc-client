@@ -12,16 +12,17 @@ export const Header = styled.header`
 `;
 
 export const Content = styled.div`
-display: flex;
+  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-bottom: 0.4rem;
+  margin-bottom: 10rem;
   padding: 1rem;
-  margin-top: 5rem;
+  margin-top: 8rem;
 
   @media screen and (max-width: 768px) {
-    display: grid;
+   /*  display: grid; */
+   margin-top: 50px;
     justify-content: center;
     flex-direction: column;
     grid-column: auto;
@@ -117,9 +118,8 @@ export const LeftDivFooter = styled.div`
   align-items: center;
   width: 50%;
   margin-right: 3rem;
-  
 
-  h2{
+  h2 {
     font-size: 3rem;
   }
 
@@ -136,9 +136,8 @@ export const RightDivFooter = styled.div`
   flex-direction: column;
   align-items: center;
   width: 50%;
-  
 
-  h2{
+  h2 {
     font-size: 3rem;
   }
   @media screen and (max-width: 768px) {
