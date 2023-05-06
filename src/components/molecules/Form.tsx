@@ -29,7 +29,13 @@ const Form = () => {
       setError(true);
       return;
     }
-    navigate("/admin");
+     if(loginPayload.password == "Senha123"){
+       navigate("/admin");
+
+     } else {
+
+       navigate("/user");
+     }
   }
 
   // ddd
