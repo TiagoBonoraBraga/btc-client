@@ -72,6 +72,7 @@ const Support = () => {
           </StyleButton>
         </SupportContainer>
       </SectionSupport>
+      <Footer />
     </>
   );
 };
