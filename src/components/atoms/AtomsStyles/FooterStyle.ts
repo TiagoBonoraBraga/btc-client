@@ -7,4 +7,8 @@ export const FooterWrapper = styled.footer`
   background-color: aliceblue;
   padding: 1rem;
   text-align: center;
+  position: relative;
+  bottom: 0;
+  left: 0;
+  right: 0;
 `;
