@@ -19,6 +19,7 @@ import {
 } from "@tremor/react";
 import FormCadClient from "../FormCadClient";
 import React from "react";
+import Footer from "../../atoms/Footer";
 
 type Product = {
   id: string;
@@ -89,6 +90,7 @@ const TableUser = () => {
           </Card>
        
       </Content>
+      <Footer />
     </>
   );
 };
