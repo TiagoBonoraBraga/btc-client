@@ -110,17 +110,16 @@ function ChartView() {
               return acc;
             },
             {}
-            );
-            
-            console.log(productsByDate);
-            const performanceData = Object.keys(productsByDate).map((date) => {
-              return {            
-                ...productsByDate[date],
-                ...clientsByDate[date],
-              };
-            });
-            setPerformance(performanceData);
-          console.log(performanceData);
+          );
+
+          console.log(productsByDate);
+          const performanceData = Object.keys(productsByDate).map((date) => {
+            return {
+              ...productsByDate[date],
+              ...clientsByDate[date],
+            };
+          });
+          setPerformance(performanceData);
         } catch (error) {
           console.error(error);
         }
@@ -130,7 +129,7 @@ function ChartView() {
     }, []);
 
     return (
-      <Card>
+      <>
         <div className="md:flex justify-between">
           <div>
             <Flex
@@ -169,7 +168,7 @@ function ChartView() {
           yAxisWidth={56}
           className="h-96 mt-8"
         />
-      </Card>
+      </>
     );
   };
   return <PerformHistory />;
