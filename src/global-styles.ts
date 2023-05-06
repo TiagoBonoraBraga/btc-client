@@ -8,10 +8,11 @@ export const GlobalStyle = createGlobalStyle`
         margin: 0;
         width: 100%;
         height: 100vh;
-        background-color: ${(props) => props.theme.lightTheme.bg};
+        background-color: aliceblue;
+       /*  background-color: ${(props) => props.theme.lightTheme.bg};
         color: ${(props) => props.theme.lightTheme.fg};
         font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-        
+         */
       } 
 
 `;
