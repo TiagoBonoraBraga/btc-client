@@ -20,6 +20,10 @@ export const LogoStyled = styled.div`
   display: flex;
   align-items: center;
   
+  @media (max-width: 768px) {
+    display: none;
+  }
+  
 `;
 
 export const MenuContentStyled = styled.div`
@@ -93,7 +97,7 @@ export const MenuStyled = styled.ul<MenuProps>`
     display: ${({ show }) => (show ? "block" : "none")};
     position: fixed;
     z-index: 4;
-    background-color: ${({ theme }) => theme.darkTheme.bg};
+    background-color: ${({ theme }) => theme.lightTheme.bg};
     top: 40px;
     overflow: hidden;
     height: 100%;
