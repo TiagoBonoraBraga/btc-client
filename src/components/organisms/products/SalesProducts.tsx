@@ -17,6 +17,7 @@ import { api } from "../../../utils/api/api";
 import FormCadProduct from "../FormCadProduct";
 import { Content } from "../../../pages/StylePages/HomeUser";
 import Header from "../Header";
+import Footer from "../../atoms/Footer";
 
 
 type Product = {
@@ -117,6 +118,7 @@ const Product = () => {
           </Table>
         </Card>
       </Content>
+      <Footer />
     </>
   );
 };
