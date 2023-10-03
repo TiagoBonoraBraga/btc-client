@@ -60,7 +60,9 @@ const TableSales = () => {
               .padStart(2, "0")}/${(date.getMonth() + 1)
               .toString()
               .padStart(2, "0")}/${date.getFullYear().toString()}`; // Formata a data como "dd/mm/aaaa"
-            product.createdAt = formattedDate; // Substitui a data original pelo valor formatado
+            
+              product.commission = product.price * (product.score / 100);
+              product.createdAt = formattedDate; // Substitui a data original pelo valor formatado
             if (!productsByDate[formattedDate]) {
               productsByDate[formattedDate] = [product];
             } else {
