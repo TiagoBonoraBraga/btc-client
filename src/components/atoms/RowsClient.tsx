@@ -5,15 +5,17 @@ import { FiEdit } from 'react-icons/fi';
 import React from 'react'
 
 export type RowsClientProps = {
+  situação: string;
   name: string;
   email: string;
   phone: string;
   cpf: string;
+  cnpj: string;
   situacao: string;
   
 }
 
-const RowsClient = ({ name, email, phone, cpf, situacao}: RowsClientProps) => {
+const RowsClient = ({ name, email, phone, cpf, cnpj, situacao}: RowsClientProps) => {
   function handleClick() {
 
   }
