@@ -30,6 +30,16 @@ export type CreateClientRequest = {
   cpf: string;
 };
 
+export type UpdateClientRequest = {
+  name: string;
+  email: string;
+  phone: string;
+  cpf: string;
+  cnpj: string;
+  situacao: boolean;
+};
+
+
 export type CreateFranchisedRequest = {
   id: string;
   name: string;
