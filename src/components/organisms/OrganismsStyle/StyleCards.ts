@@ -18,6 +18,7 @@ export const CardContainer = styled.div`
     transform: translateY(-5px);
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    background-color: #fff;
   }
 
   @media (min-width: 300px) {
@@ -38,6 +39,7 @@ export const CardTitle = styled.h3`
   margin: 1rem 0 0.5rem;
   font-size: 1.2rem;
   text-align: center;
+  color: #2D9BF0;
 `;
 
 export const CardDescription = styled.p`
