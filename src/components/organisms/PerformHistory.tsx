@@ -116,9 +116,10 @@ function ChartView() {
           const performanceData = Object.keys(productsByDate).map((date) => {
             return {
               ...productsByDate[date],
-              ...clientsByDate[date],
+              /* ...clientsByDate[date], */
             };
           });
+          console.log(productsByDate)
           setPerformance(performanceData);
         } catch (error) {
           console.error(error);
