@@ -13,7 +13,7 @@ import CancelButton from "../atoms/CancelButton";
 import SubTitulo from "../atoms/SubTitle";
 import SubmitButton from "../atoms/SubmitButton";
 
-interface ModalProps {
+export interface ModalProps {
   show: boolean;
   handleClose: () => void;
 }
