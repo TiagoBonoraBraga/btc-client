@@ -17,12 +17,13 @@ export const InputForm = styled.input`
   margin: 5px 0 10px 0;
   width: 80%;
   color: black;
-  height: 20px;
+  height: 3em;
   display: flex;
   justify-content: flex-start;
   align-items: flex-start;
-  padding: 5px;
+  padding: 3px;
   transition: box-shadow 0.2s ease-in-out; /* Adicionando uma transição suave para a sombra da caixa */
+  
   
   ::placeholder {
     color: #ccc;
